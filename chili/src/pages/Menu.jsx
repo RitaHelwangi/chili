@@ -1,5 +1,5 @@
 import "../pages/Menu.css"
-import pizzaMenu from "../data/menuStore"
+import {pizzaMenu} from "../data/menuStore"
 import MenuItem from "../components/MenuItem/MenuItem";
 function Menu(){
 	return(
@@ -9,8 +9,8 @@ function Menu(){
 				<button>Drink</button>
 
 			</div>
-			
-			{pizzaMenu.map(item => (
+			<div className="menu-item-div">
+				{pizzaMenu.map(item => (
   <MenuItem
     key={item.id}
     image={item.image}
@@ -21,6 +21,8 @@ function Menu(){
     ingredients={item.ingredients.join(', ')}
   />
 ))}
+			</div>
+			
 
 		
 		</div>
