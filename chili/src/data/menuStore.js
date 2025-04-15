@@ -2,94 +2,95 @@ const pizzaMenu = [
 	{
 	  id: '1',
 	  name: 'Classic Margherita',
-	  description: 'En tidlös favorit med tomatbas och mozzarellaost.',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Färsk basilika'],
+	  description: 'A timeless favorite with tomato base and mozzarella cheese.',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Fresh basil'],
 	  price: 95,
 	  image: 'https://www.oliviascuisine.com/wp-content/uploads/2016/08/classic-pizza-margherita-1.jpg',
-	  alt: 'Classic Margherita pizza med tomat och basilika'
+	  alt: 'Classic Margherita pizza with tomato and basil'
 	},
 	{
 	  id: '2',
 	  name: 'Spicy Pepperoni',
-	  description: 'En eldig twist på klassikern med vår hemlagade chiliolja.',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Pepperoni', 'Chiliolja'],
+	  description: 'A fiery twist on the classic with our homemade chili oil.',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Pepperoni', 'Chili oil'],
 	  price: 110,
 	  image: 'https://flouredframe.com/wp-content/uploads/2022/07/sweet-spicy-pizza-2.jpg',
-	  alt: 'Spicy Pepperoni pizza med chiliolja'
+	  alt: 'Spicy Pepperoni pizza with chili oil'
 	},
 	{
 	  id: '3',
 	  name: 'Chili Inferno',
-	  description: 'Vår hetaste pizza hittills – inte för de svaghjärtade!',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Kryddig salami', 'Jalapeños', 'Röda chiliflingor'],
+	  description: 'Our spiciest pizza yet – not for the faint-hearted!',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Spicy salami', 'Jalapeños', 'Red chili flakes'],
 	  price: 120,
 	  image: 'https://images.unsplash.com/photo-1555072956-7758afb20e8f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Mycket kryddig pizza med jalapeños och chiliflingor'
+	  alt: 'Very spicy pizza with jalapeños and chili flakes'
 	},
 	{
 	  id: '4',
 	  name: 'Green Garden',
-	  description: 'En frisk och hälsosam vegetarisk pizza full av grönt.',
-	  ingredients: ['Pestobas', 'Mozzarella', 'Zucchini', 'Spenat', 'Oliver'],
+	  description: 'A fresh and healthy vegetarian pizza full of greens.',
+	  ingredients: ['Pesto base', 'Mozzarella', 'Zucchini', 'Spinach', 'Olives'],
 	  price: 105,
 	  image: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Vegetarisk pizza med gröna grönsaker och pesto'
+	  alt: 'Vegetarian pizza with green vegetables and pesto'
 	},
 	{
 	  id: '5',
 	  name: 'Cheesy Explosion',
-	  description: 'En fyr-ostblandning för alla ostälskare.',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Parmesan', 'Blåmögelost', 'Cheddar'],
+	  description: 'A four-cheese blend for all cheese lovers.',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Parmesan', 'Blue cheese', 'Cheddar'],
 	  price: 115,
 	  image: 'https://plus.unsplash.com/premium_photo-1690056321981-dfe9e75e0247?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Pizza med en blandning av fyra ostar'
+	  alt: 'Pizza with a mix of four cheeses'
 	},
 	{
 	  id: '6',
 	  name: 'BBQ Chicken',
-	  description: 'Söt och rökig BBQ-sås med grillade kycklingbitar.',
-	  ingredients: ['BBQ-sås', 'Mozzarella', 'Kyckling', 'Rödlök', 'Koriander'],
+	  description: 'Sweet and smoky BBQ sauce with grilled chicken pieces.',
+	  ingredients: ['BBQ sauce', 'Mozzarella', 'Chicken', 'Red onion', 'Cilantro'],
 	  price: 119,
 	  image: 'https://plus.unsplash.com/premium_photo-1673439304183-8840bd0dc1bf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'BBQ-kycklingpizza med lök och koriander'
+	  alt: 'BBQ chicken pizza with onion and cilantro'
 	},
 	{
 	  id: '7',
 	  name: 'Truffle Delight',
-	  description: 'Lyx möter smak med krämig tryffelsås och svamp.',
-	  ingredients: ['Tryffelkräm', 'Mozzarella', 'Svamp', 'Parmesan', 'Ruccola'],
+	  description: 'Luxury meets flavor with creamy truffle sauce and mushrooms.',
+	  ingredients: ['Truffle cream', 'Mozzarella', 'Mushrooms', 'Parmesan', 'Arugula'],
 	  price: 130,
 	  image: 'https://images.unsplash.com/photo-1640867870584-53ceb4132dc6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Pizza med tryffelkräm och svamp'
+	  alt: 'Pizza with truffle cream and mushrooms'
 	},
 	{
 	  id: '8',
 	  name: 'Tuna Surprise',
-	  description: 'En skaldjurstwist med tonfisk och rödlök.',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Tonfisk', 'Rödlök', 'Kapris'],
+	  description: 'A seafood twist with tuna and red onion.',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Tuna', 'Red onion', 'Capers'],
 	  price: 112,
 	  image: 'https://plus.unsplash.com/premium_photo-1730829452112-9255b16c2df8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Pizza med tonfisk, lök och kapris'
+	  alt: 'Pizza with tuna, onion, and capers'
 	},
 	{
 	  id: '9',
 	  name: 'Meat Lover’s Dream',
-	  description: 'Fylld med kött för den ultimata köttälskaren.',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Korv', 'Bacon', 'Skinka', 'Salami'],
+	  description: 'Packed with meat for the ultimate carnivore.',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Sausage', 'Bacon', 'Ham', 'Salami'],
 	  price: 125,
 	  image: 'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Pizza fylld med olika sorters kött'
+	  alt: 'Pizza loaded with various types of meat'
 	},
 	{
 	  id: '10',
 	  name: 'Veggie Volcano',
-	  description: 'En kryddig vegetarisk pizza full av smak.',
-	  ingredients: ['Tomatsås', 'Mozzarella', 'Paprika', 'Chiliflingor', 'Lök', 'Majs'],
+	  description: 'A spicy vegetarian pizza bursting with flavor.',
+	  ingredients: ['Tomato sauce', 'Mozzarella', 'Bell pepper', 'Chili flakes', 'Onion', 'Corn'],
 	  price: 108,
 	  image: 'https://images.unsplash.com/photo-1646257106221-18a7dbc7774d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	  alt: 'Kryddig vegetarisk pizza med färgglada toppings'
+	  alt: 'Spicy vegetarian pizza with colorful toppings'
 	}
   ];
+  
   
   const drinksMenu = [
 	{
