@@ -1,0 +1,18 @@
+.menu-div{
+	background-image: url("../assets/images/unsplash_ScCZTD4qtEI.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.menu-nav button{
+	width: 30%;
+	padding: 20px;
+	
+
+}
+.menu-nav{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}

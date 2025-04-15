@@ -1,4 +1,4 @@
-const pizzaMenu = [
+export const pizzaMenu = [
 	{
 	  id: '1',
 	  name: 'Classic Margherita',
@@ -92,7 +92,7 @@ const pizzaMenu = [
   ];
   
   
-  const drinksMenu = [
+  export const drinksMenu = [
 	{
 	  id: '1',
 	  name: 'Coca-Cola',
