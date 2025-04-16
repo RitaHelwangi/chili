@@ -29,8 +29,8 @@ async function saveMenu() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        key: key,
-        value: JSON.stringify(menuObject)
+        key: key,         // this is the key we use to get our data, didn't have to request a key from api
+        value: menuObject // this is where we put the menu object
       })
     });
     const result = await response.json(); 
@@ -40,20 +40,34 @@ async function saveMenu() {
   }
 }
 
-async function loadMenu() {
+async function loadFromApi() {
   try {
-    const response = await fetch(`${api}?method=load&key=${key}`); 
+    const url = `${api}?method=load&key=${key}`;
+    const response = await fetch(url, {
+      method: 'GET'
+    });
+
     const data = await response.json();
-    const menu = JSON.parse(data.value);
-    console.log("Loaded menu from API:", menu);
+    console.log("Raw API response:", data);
+
+    if (!Array.isArray(data)) {  
+      console.error("Unexpected API format:", data);
+      return null;
+    }
+
+    console.log("Loaded from API:", data);
+    return data;
   } catch (error) {
-    console.error("Failed to load menu from API", error);
+    console.error("Failed to load from API", error);
+    return null;
   }
 }
 
-async function run() {
+async function runApi() { // this is just a run function to test the api, not needed in the final version
   await saveMenu();
-  await loadMenu();
+  await loadFromApi();
 }
 
-run();
+runApi();
+
+export { saveMenu, loadFromApi, runApi };
