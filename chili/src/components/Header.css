@@ -18,7 +18,7 @@ html, body {
 
 .header-content {
   display: flex;
-  gap: 20px;
+  gap: 200px;
 }
 
 /* Logo column */
@@ -47,7 +47,7 @@ html, body {
   align-items: center;
   justify-content: center;
   line-height: normal;
-  width: 56%;
+  width: 70%;
   margin-left: 20px;
 }
 
