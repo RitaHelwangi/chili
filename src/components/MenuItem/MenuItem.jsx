@@ -1,0 +1,30 @@
+import "../MenuItem/MenuItem.css"
+function MenuItemFood(props){
+	return(
+		
+		<div className="menu-item">
+		<div className="image-menu">
+		<img src={props.image} alt={props.alt} />
+		</div>
+		<div>
+		<div className="name-price">
+		<p >{props.name}</p>
+		<p>{props.price} SEK</p>  
+		</div>
+		<div className="menu-desc"><p>{props.description}</p>
+		<p>{props.ingredients}</p>
+		<button className="order-button">Add to Order</button>
+		</div>
+		
+		
+		
+		
+		
+		
+		</div>
+		
+		</div>
+		
+	)
+}
+export default MenuItemFood

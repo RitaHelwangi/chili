@@ -34,7 +34,7 @@ const WelcomeSection = () => {
             </div>
           </div>
           <div className="ctaContainer">
-            <img src="" className="ctaImage"alt=""/>
+            <img src="" className="ctaImage" alt="Logo"/>
             <p className="ctaText">
               Check out our menu! <br />
             </p>
