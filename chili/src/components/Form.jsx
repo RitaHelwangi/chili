@@ -1,7 +1,8 @@
 import FormStructure from "./FormStructure"
 import { useState } from "react"
 import Joi from "joi";
-
+import "./form.css";
+import { Link } from 'react-router-dom';
 
 
 const schema = Joi.object({
@@ -47,7 +48,7 @@ function Form () {
 		if (error) {
 			if (name === "username") message = "username to short";
 			if (name === "email") message = "email inccorect";
-			if (name === "password") message = "password inccorect, minimum of four letters";
+			if (name === "password") message = "password inccorect";
 		}
 
 		setErrors((prev) => ({
