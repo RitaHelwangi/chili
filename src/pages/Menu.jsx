@@ -10,7 +10,7 @@ function Menu(){
 
 			</div>
 			<div className="icon-shop">
-			<i class="fas fa-shopping-cart"></i></div>
+			<i className="fas fa-shopping-cart"></i></div>
 
 			<div className="menu-item-div">
 				{pizzaMenu.map(item => (

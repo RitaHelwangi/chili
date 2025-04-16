@@ -3,7 +3,7 @@ function MenuItem(props){
 	return(
 		
 		<div className="menu-item">
-		<div>
+		<div className="image-menu">
 		<img src={props.image} alt={props.alt} />
 		</div>
 		<div>

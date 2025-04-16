@@ -29,3 +29,16 @@
 .order-button:hover{
 	background-color: #B93324;
 }
+
+
+@media screen and (max-width:500px){
+	
+	.menu-item{
+		flex-direction: column;
+	}
+	.image-menu{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
