@@ -9,6 +9,9 @@ function Menu(){
 				<button>Drink</button>
 
 			</div>
+			<div className="icon-shop">
+			<i class="fas fa-shopping-cart"></i></div>
+
 			<div className="menu-item-div">
 				{pizzaMenu.map(item => (
   <MenuItem

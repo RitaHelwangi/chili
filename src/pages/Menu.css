@@ -9,7 +9,13 @@
 	padding: 20px;
 	background-color: #8DA253;
 	border: none;
+	margin: 10px;
+	transition: all 0.5s;
 
+}
+.menu-nav button:hover{
+	background-color: #B93324;
+	color: white;
 }
 .menu-nav{
 	display: flex;
@@ -20,4 +26,13 @@
 .menu-item-div{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+}
+.icon-shop{
+	background-color: antiquewhite;
+	border-radius: 100%;
+	position: absolute;
+	top: 40px;
+	left: 80px;
+	font-size: 25px;
+	padding: 15px;
 }
