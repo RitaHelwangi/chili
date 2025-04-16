@@ -1,0 +1,20 @@
+.menu-item img{
+	width: 100px;
+}
+.menu-item{
+	margin: 30px;
+	display: flex;
+	background-color: hsl(76, 32%, 48%,0.5);
+	padding: 10px;
+}
+.menu-item>*{
+	margin: 20px;
+}
+.name-price{
+	display: flex;
+	justify-content: space-between;
+}
+.menu-desc{
+	display: flex;
+	flex-direction: column;
+}

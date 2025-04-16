@@ -1,0 +1,23 @@
+.menu-div{
+	background-image: url("../assets/images/unsplash_ScCZTD4qtEI.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.menu-nav button{
+	width: 30%;
+	padding: 20px;
+	background-color: #8DA253;
+	border: none;
+
+}
+.menu-nav{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
+.menu-item-div{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
