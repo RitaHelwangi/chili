@@ -1,5 +1,5 @@
 import "../MenuItem/MenuItem.css"
-function MenuItem(props){
+function MenuItemFood(props){
 	return(
 		
 		<div className="menu-item">
@@ -27,4 +27,4 @@ function MenuItem(props){
 		
 	)
 }
-export default MenuItem
+export default MenuItemFood
