@@ -44,7 +44,9 @@
 }
 @media screen and (max-width:750px){
 	.icon-shop{
-		left: 20px;
+		left: 10px;
+		font-size: 20px;
+		padding: 10px;
 	}
 }
 
