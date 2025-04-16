@@ -1,0 +1,47 @@
+:root{
+    --header-color: #8DA253;
+    --text-color: #FFF0C0;
+}
+
+
+.header {
+    
+    margin: 0;
+    padding: 0;
+    background-color: var(--header-color);
+    box-sizing: border-box;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 0 70px 0 70px;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.logo {
+    height: 80px;
+    padding: 10px;
+    
+}
+
+.FWorkers{
+    color: #000;
+    margin-left: 70px;
+}
