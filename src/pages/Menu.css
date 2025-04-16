@@ -1,0 +1,52 @@
+.menu-div{
+	background-image: url("../assets/images/unsplash_ScCZTD4qtEI.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.menu-nav button{
+	width: 30%;
+	padding: 20px;
+	background-color: #8DA253;
+	border: none;
+	margin: 10px;
+	transition: all 0.5s;
+
+}
+.menu-nav button:hover{
+	background-color: #B93324;
+	color: white;
+}
+.menu-nav{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
+.menu-item-div{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.icon-shop{
+	background-color: antiquewhite;
+	border-radius: 100%;
+	position: absolute;
+	top: 40px;
+	left: 50px;
+	font-size: 25px;
+	padding: 15px;
+}
+@media screen and (max-width:1000px) {
+	.menu-item-div{
+		display: grid;
+		grid-template-columns: 1fr ;
+	}
+}
+@media screen and (max-width:750px){
+	.icon-shop{
+		left: 10px;
+		font-size: 20px;
+		padding: 10px;
+	}
+}
+
