@@ -12,13 +12,12 @@ html, body {
 .header-container {
   background-color: rgba(141, 162, 83, 1);
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-  width: 100%;
   padding: 13px 52px;
 }
 
 .header-content {
   display: flex;
-  gap: 200px;
+  flex-direction: space-between;
 }
 
 /* Logo column */
@@ -89,8 +88,7 @@ html, body {
   flex-direction: column;
   align-items: stretch;
   line-height: normal;
-  width: 28%;
-  margin-left: 20px;
+  
 }
 
 .for-workers {

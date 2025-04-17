@@ -7,17 +7,15 @@
 .contentWrapper {
   display: flex;
   flex-direction: column;
-  position: relative;
+  align-items: center;
   min-height: 1011px;
-  width: 100%;
-
-  padding-right: 80px;
   padding-top: 54px;
   padding-bottom: 122px;
   align-items: center;
   background-image: url('../assets/unsplash_II3Vo7MJ9Z0.png');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 
@@ -33,7 +31,8 @@
 
 .welcomeMessageContainer {
   
-  background-color: #54922E;
+  background-color: rgba(84, 146, 46, 0.85);
+  opacity: 85%;
   padding: 30px 30px 40px 30px;
   }
 
@@ -127,7 +126,8 @@
   color: rgba(255, 241, 193, 1);
   font-weight: 600;
   text-align: center;
-  background-color: #54922E;
+  background-color: rgba(84, 146, 46, 0.85);
+  opacity: 85%;
 }
 
 .ctaImage {
