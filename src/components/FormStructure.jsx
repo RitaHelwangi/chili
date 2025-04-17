@@ -1,4 +1,4 @@
-// import logo from './logga/ChiliLogo.svg';
+
 import { Link } from 'react-router-dom';
 
 function FormStructure ({formData, error, touched, handleChange, handleBlur,  isFormValid}){
@@ -8,7 +8,7 @@ function FormStructure ({formData, error, touched, handleChange, handleBlur,  is
 		<div>
 			<div className="head-menu">
   				<Link to="/">
-    			<img src={logo} alt="Logotyp" className="logo" />
+    			
   				</Link>
   				<h1>Work log in</h1>
 			</div>
