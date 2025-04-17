@@ -1,6 +1,6 @@
 import React from 'react'
 import { useOrderStore } from '../data/orderStore'
-import '../styles/order.css'
+import '../pages/order.css'
 
 function PizzaCard({ pizza }) {
   const addToCart = useOrderStore(state => state.addToCart)
