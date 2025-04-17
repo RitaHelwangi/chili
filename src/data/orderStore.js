@@ -18,6 +18,7 @@ export const useOrderStore = create((set) => ({
       return { cart: [...state.cart, { ...pizza, quantity: 1 }] };
     }),
 
+  removeFromCart: true,
   removeFromCart: (pizzaId) =>
     set((state) => ({
       cart: state.cart.filter((item) => item.id !== pizzaId),
