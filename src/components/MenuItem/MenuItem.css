@@ -1,0 +1,50 @@
+.menu-item img{
+	width: 160px;
+	border-radius: 20px;
+}
+.menu-item{
+	margin: 30px;
+	display: flex;
+	background-color: hsl(76, 32%, 48%,0.5);
+	padding: 10px;
+}
+.menu-item>*{
+	margin: 20px;
+}
+.name-price{
+	display: flex;
+	justify-content: space-between;
+	font-weight: bold;
+}
+.name-price>*{
+	margin: 20px;
+}
+.menu-desc{
+	display: flex;
+	flex-direction: column;
+}
+.order-button{
+	background-color: hsl(76, 51%, 29%);
+	color: white;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+.order-button:hover{
+	background-color: #B93324;
+}
+
+
+@media screen and (max-width:500px){
+	
+	.menu-item{
+		flex-direction: column;
+	}
+	.image-menu{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+.order-button-drink{
+	margin-top: 50px;
+}
