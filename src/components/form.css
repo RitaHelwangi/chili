@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua&display=swap');
+
+body {
+  font-family: 'Inknut Antiqua', serif;
+}
+
+
+section {
+	display: flex;
+	flex-direction: column; 
+	align-items: center;
+	padding: 1em;
+	gap: 2em;
+  }
+  
+  .head-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+  }
+  
+  .head-menu .logo {
+	width: 100px;
+	height: auto;
+  }
+  
+  .head-menu h1 {
+	font-size: 1.5em;
+	margin-top: 1em;
+  }
+  
+  .text-box {
+	background-color: #8DA253;
+	color: white;
+	padding: 1.5em;
+	border-radius: 1em;
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+  }
+  
+  .text-box h1 {
+	margin-bottom: 2em;
+	font-size: 1.6em;
+  }
+  
+  .text-box p {
+	font-size: 1.2em;
+	margin-bottom: 8em;
+  }
+  
+  form {
+	width: 100%;
+	max-width: 400px;
+  }
+  
+  .input-field {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1.5em;
+  }
+  
+  .input-field label {
+	margin-bottom: 0.5em;
+	font-weight: bold;
+  }
+  
+  .input-field input {
+	padding: 0.5em;
+	font-size: 1em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+  }
+  
+  .input-field small.error {
+	color: red;
+	min-height: 1.2em;
+	font-size: 0.85em;
+	margin-top: 0.5em;
+	display: block;
+	transition: opacity 0.3s ease;
+	opacity: 1;
+  }
+  
+  .input-field small.error:empty {
+	opacity: 0;
+  }
+  
+  button {
+	width: 50%;
+	padding: 1em;
+	/* font-size: 1em; */
+	font-weight: bold;
+	font-family: 'Inknut Antiqua', serif;;
+	background-color: #FFF0C1;
+	color: black;
+	border: 1px solid black;
+	border-radius: 4px;
+  }
+  
+  
+  @media (min-width: 768px) {
+	section {
+	  flex-direction: row;
+	  justify-content: center;
+	  align-items: flex-start;
+	  padding: 2em;
+	}
+  
+	.head-menu {
+	  flex-direction: row;
+	  justify-content: flex-start;
+	  margin-left: 10%;
+	}
+  
+	.head-menu h1 {
+	  font-size: 2em;
+	  margin-left: 2em;
+	}
+  
+	.text-box {
+	  margin-left: 4em;
+	  text-align: left;
+	}
+  }

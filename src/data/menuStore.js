@@ -104,14 +104,14 @@ export const pizzaMenu = [
 	  id: '2',
 	  name: 'Fanta Orange',
 	  price: 25,
-	  image: 'https://images.unsplash.com/photo-1499638673689-79a0b5115d87?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+	  image: 'https://images.unsplash.com/photo-1555949366-819808d99159?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	
 	},
 	{
 	  id: '3',
 	  name: 'Sprite',
 	  price: 25,
-	  image: 'https://unsplash.com/photos/clear-glass-cup-filled-with-water-and-lemon-gtDYwUIr9Vg',
+	  image: 'https://images.unsplash.com/photo-1575596510825-f748919a2bf7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 	  
 	},
 	{
