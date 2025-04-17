@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "./components/MenuItem/MenuItem";
+import Menu from "./pages/Menu";
 import { HashRouter,Routes,Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Order from './pages/Order';
