@@ -1,4 +1,4 @@
-import logo from './logga/ChiliLogo.svg';
+// import logo from './logga/ChiliLogo.svg';
 import { Link } from 'react-router-dom';
 
 function FormStructure ({formData, error, touched, handleChange, handleBlur,  isFormValid}){

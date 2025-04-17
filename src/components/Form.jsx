@@ -1,5 +1,6 @@
-import FormStructure from "./FormStructure"
-import { useState } from "react"
+
+import FormStructure from "./FormStructure";
+import { useState } from "react";
 import Joi from "joi";
 import "./form.css";
 import { Link } from 'react-router-dom';

@@ -5,29 +5,30 @@ import Home from "./pages/Home";
 import Form from './components/Form'
 
 
-function AppWrapper() {
-	const location = useLocation();
-	const isFormPage = location.pathname === "/form";
+// function AppWrapper() {
+// 	const location = useLocation();
+// 	const isFormPage = location.pathname === "/form";
   
-	return (
-	  <>
+// 	return (
+// 	  <>
 		
-		{!isFormPage && (
-		  <NavLink to="/form">Go to Form</NavLink>
-		)}
+// 		{!isFormPage && (
+// 		  <NavLink to="/form">Go to Form</NavLink>
+// 		)}
 		
-		<Routes>
+// 		<Routes>
 		  
-		</Routes>
-	  </>
-	);
-  }
+// 		</Routes>
+// 	  </>
+// 	);
+//   }
 
 function App() {
   return (
     <>
 	<HashRouter>
 		<Routes>
+			<Route path="/form" element={<Form></Form>}></Route>
 			<Route path="/menu" element={<Menu></Menu>}></Route>
 			<Route path="/" element={<Home></Home>}></Route>
 		</Routes>
