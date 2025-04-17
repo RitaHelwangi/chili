@@ -1,10 +1,10 @@
 import React from "react";
-import OrderPage from "./pages/OrderPage";
+import Order from "./pages/Order";
 import './App.css';
 import './index.css';
 
 const App = () => {
-  return <OrderPage />;
+  return <Order />;
 };
 
-export default App;
+export default App

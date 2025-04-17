@@ -1,0 +1,33 @@
+.receipt-container {
+    background-color: #fff0cc;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .receipt-title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+  
+  .receipt-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ccc;
+  }
+  
+  .receipt-total {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 2px solid #333;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
