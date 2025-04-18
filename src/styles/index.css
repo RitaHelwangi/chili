@@ -1,37 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f8f8f8;
-  margin: 0;
+.receipt {
   padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 30px auto;
+  font-family: sans-serif;
 }
 
-.receipt-page {
-  max-width: 800px;
-  margin: auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.receipt-list {
+.receipt ul {
   list-style-type: none;
   padding: 0;
 }
 
-.receipt-item {
+.receipt li {
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  padding: 8px 0;
 }
-
-.receipt-item:last-child {
-  border-bottom: none;
-}
-
-.error {
-  color: red;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-

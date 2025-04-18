@@ -1,8 +1,15 @@
-import React from 'react';
-import ReceiptPage from './pages/ReceiptPage';
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import ReceiptPage from "./pages/ReceiptPage";
 
-const App = () => {
-  return <ReceiptPage />;
-};
+function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<ReceiptPage />} />
+      </Routes>
+    </HashRouter>
+  );
+}
 
 export default App
