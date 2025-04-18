@@ -20,3 +20,9 @@ const Receipt = ({ items }) => {
 };
 
 export default Receipt
+
+// Create a functional component called Receipt, which takes items as a prop.
+// If there are no items or the list is empty, show a message "No items in receipt.".
+// const total = for calculating total price. Add up all item.price values.
+// Loop through each item and show them. (.map)
+// Show each item’s details, , using the index as the key.

@@ -14,6 +14,11 @@ const ReceiptPage = () => {
 
 export default ReceiptPage
 
+// Define a new React component named ReceiptPage.
+// Get the orders data from the order store using the custom hook. (const { orders } = useOrderStore();)
+// (return) Render a div.page with Receipt, passing orders as items.
+
+
 // testing receipt
 /*
 import React, { useEffect } from "react";
