@@ -1,15 +1,18 @@
-import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import ReceiptPage from "./pages/ReceiptPage";
+// src/App.jsx 
 
-function App() {
+import React from 'react'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import Header from './components/Header'
+import MenuEditor from './pages/MenuEditor'
+
+export default function App() {
   return (
-    <HashRouter>
+    <>
+      <Header />
       <Routes>
-        <Route path="/" element={<ReceiptPage />} />
+        <Route path="/" element={<Navigate to="/admin" />} />
+        <Route path="/admin" element={<MenuEditor />} />
       </Routes>
-    </HashRouter>
-  );
+    </>
+  )
 }
-
-export default App

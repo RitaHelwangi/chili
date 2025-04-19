@@ -1,0 +1,62 @@
+
+body {
+  font-family: 'Inknut Antiqua', serif;
+  background-color: #fef0c1;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #8da253;
+  padding: 10px;
+}
+
+.logo {
+  height: 50px;
+  margin-right: auto;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.menu-box {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: rgba(141, 162, 83, 0.5);
+}
+
+.menu-buttons button,
+.form-area button {
+  background-color: #b83324;
+  color: white;
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-buttons button:hover,
+.form-area button:hover {
+  background-color: transparent;
+  color: #b83324;
+  border: 1px solid #b83324;
+}
+
+.form-area input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin: 10px 0;
+}
