@@ -17,3 +17,8 @@ export default function MenuEditor() {
     </div>
   )
 }
+
+// Create & export function 'MenuEditor' used as the page for editing menus.
+// Get the 'fetchMenus' function from the Zustand store to load menu data from the API.
+// Use 'useEffect' to call 'fetchMenus' 
+// Render the MenuForm.

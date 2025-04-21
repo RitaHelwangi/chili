@@ -1,4 +1,5 @@
 // src/components/MenuBox.jsx
+
 import React, { useState } from 'react'
 import MenuForm from './MenuForm'
 
@@ -18,3 +19,6 @@ export default function MenuBox() {
     </div>
   )
 }
+
+// Create & export a functional component named 'MenuBox'.
+// Create 'state' for keeping type of menu. (food / drinks)

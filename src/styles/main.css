@@ -68,8 +68,8 @@ body {
   margin-bottom: 20px;
 }
 
-.menu-buttons button,
-button.menu-button {
+/* ✅ ปุ่มรวมทั้งหมด: Save / Edit / Remove / Food / Drinks */
+.menu-button {
   background-color: #b83324;
   color: white;
   margin: 5px;
@@ -81,25 +81,7 @@ button.menu-button {
   font-weight: bold;
 }
 
-.menu-buttons button:hover,
-button.menu-button:hover {
-  background-color: transparent;
-  color: #b83324;
-  border: 2px solid #b83324;
-}
-
-.form-area button.save-button {
-  background-color: #b83324;
-  color: white;
-  border: none;
-  margin: 10px 0;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.form-area button.save-button:hover {
+.menu-button:hover {
   background-color: transparent;
   color: #b83324;
   border: 2px solid #b83324;
@@ -158,12 +140,10 @@ button.menu-button:hover {
   font-style: italic;
   color: #333;
   font-weight: bold;
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.form-area p {
-  display: none;
+  display: block;
+  margin: 20px auto;
+  width: fit-content;
+  text-align: center;
 }
 
 .menu-category-title {
@@ -173,35 +153,4 @@ button.menu-button:hover {
   font-size: 1.2rem;
   margin: 30px auto 10px;
   display: inline-block;
-}
-
-.menu-item button {
-  margin: 5px 5px 0 0;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  border-radius: 4px;
-  border: none;
-  background-color: #8da253;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.menu-item button:hover {
-  background-color: transparent;
-  color: #8da253;
-  border: 1px solid #8da253;
-}
-
-.menu-item.empty {
-  background-color: rgba(141, 162, 83, 0.5);
-  padding: 20px;
-  border-radius: 6px;
-  font-style: italic;
-  color: #333;
-  font-weight: bold;
-  display: block;
-  margin: 20px auto;
-  width: fit-content;
-  text-align: center;
 }

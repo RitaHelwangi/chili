@@ -6,6 +6,10 @@ import { useMenuStore } from '../store/menuStore'
 
 const suggestions = ['Pizza', 'Pasta', 'Pie', 'Pepsi']
 
+// Create a component 'MenuForm'which used to add, edit, and manage menu items.
+// Destructure state & actions from useMenuStore.
+// Set up form input state with default empty values.
+// Define states for edit mode, message, category filter, validation error, and search text.
 export default function MenuForm() {
   const { menus, addMenu, removeMenu, editMenu, saveMenus, fetchMenus } = useMenuStore()
   const [form, setForm] = useState({ id: '', name: '', description: '', ingredients: '', price: '', image: '', alt: '' })
@@ -15,10 +19,12 @@ export default function MenuForm() {
   const [validationError, setValidationError] = useState('')
   const [search, setSearch] = useState('')
 
+  // fetch menus from the store.
   useEffect(() => {
     fetchMenus()
-  }, [])
-
+  }, [fetchMenus])
+  
+  // Define Joi validation schema for validating the menu form.
   const schema = Joi.object({
     id: Joi.string().required(),
     name: Joi.string().min(1).required(),
@@ -29,60 +35,56 @@ export default function MenuForm() {
     alt: Joi.string().required()
   })
 
+  // Update the form state when the user types.
   const handleChange = (e) => {
     const { name, value } = e.target
     setForm(prev => ({ ...prev, [name]: value }))
   }
 
+  // When click 'save' or 'update'/ show error if something is error.
   const handleSubmit = async () => {
     const { error } = schema.validate(form)
     if (error) {
       setValidationError(error.details[0].message)
       return
     }
+    // Clear any previous validation error.
     setValidationError('')
 
-    const updatedForm = {
-      ...form,
-      image: form.image?.startsWith('http') ? form.image : form.image.replace(/^.*[\\/]/, '') // get filename only
-    }
-
+    // If in editing mode, update the menu. Otherwise, add new menu.
     if (editingId) {
-      editMenu(updatedForm)
+      editMenu(form)
       setMessage('Menu updated and synced successfully!')
     } else {
-      addMenu(updatedForm)
+      addMenu(form)
       setMessage('Menu added and synced successfully!')
     }
+    // Save to backend, clear form & message after 3 seconds.
     await saveMenus()
     setTimeout(() => setMessage(''), 3000)
     setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '', alt: '' })
     setEditingId(null)
   }
 
+  // Filter menu items based on search term & type.
   const filteredMenus = menus.filter(menu => {
-    const matchFilter = filter === 'all' || (filter === 'food' && menu.type !== 'drink') || (filter === 'drink' && menu.type === 'drink')
-    const matchSearch = Object.values(menu).some(value =>
-      typeof value === 'string' && value.toLowerCase().includes(search.toLowerCase())
-    )
-    return matchFilter && matchSearch
+    const matchSearch = (value) => value.toLowerCase().includes(search.toLowerCase())
+    const isSearchMatch = matchSearch(menu.name) || matchSearch(menu.description) || menu.ingredients?.some(i => matchSearch(i))
+    const isTypeMatch = filter === 'all' || (filter === 'food' && menu.type === 'food') || (filter === 'drink' && menu.type === 'drink')
+    return isSearchMatch && isTypeMatch
   })
-
-  const resolveImagePath = (imagePath) => {
-    if (!imagePath) return ''
-    return imagePath.startsWith('http') ? imagePath : `/images/${imagePath}`
-  }
 
   return (
     <div className="form-area">
-      <div className="menu-buttons">
+      <div className="filter-buttons">
         <button className="menu-button" onClick={() => setFilter('food')}>Food</button>
         <button className="menu-button" onClick={() => setFilter('drink')}>Drinks</button>
       </div>
 
-      <h2>Edit menu</h2>
+      <h2>Edit Menu</h2>
 
-      <input name="search" id="search" placeholder="Search..." value={search} onChange={e => setSearch(e.target.value)} />
+      <input id="search" name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search menu..." autoComplete="off" />
+
       <input name="id" id="id" value={form.id} onChange={handleChange} placeholder="ID" autoComplete="off" />
       <input name="name" id="name" value={form.name} onChange={handleChange} placeholder="Name" list="suggestions" autoComplete="off" />
       <datalist id="suggestions">
@@ -92,7 +94,6 @@ export default function MenuForm() {
       <input name="ingredients" id="ingredients" value={form.ingredients} onChange={handleChange} placeholder="Ingredients" autoComplete="off" />
       <input name="price" id="price" value={form.price} onChange={handleChange} placeholder="Price" type="number" autoComplete="off" />
       <input name="alt" id="alt" value={form.alt} onChange={handleChange} placeholder="Alt Text" autoComplete="off" />
-      <input name="image" id="image" value={form.image} onChange={handleChange} placeholder="Image filename (e.g. bruschetta.jpg)" autoComplete="off" />
 
       <div className="action-buttons">
         <button className="menu-button" onClick={handleSubmit}>{editingId ? 'Update' : 'Save'}</button>
@@ -108,13 +109,13 @@ export default function MenuForm() {
       {message && <div className="success-message">{message}</div>}
 
       <h3>Menu List</h3>
-      {filteredMenus.length === 0 && <p>No menu items found.</p>}
+      {filteredMenus.length === 0 && <p className="menu-item empty">No menu items found.</p>}
       {filteredMenus.map(menu => (
         <div key={menu.id} className="menu-item">
           <strong>{menu.name}</strong> — {menu.description}<br />
           <em>{Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : menu.ingredients}</em><br />
           <span>฿{menu.price}</span><br />
-          {menu.image && <img src={resolveImagePath(menu.image)} alt={menu.alt} width="100" style={{ marginTop: '8px' }} />}<br />
+          {menu.image && <img src={"/images/" + menu.image} alt={menu.alt} width="100" style={{ marginTop: '8px' }} />}<br />
           <button className="menu-button" onClick={() => { setForm(menu); setEditingId(menu.id) }}>Edit</button>
           <button className="menu-button" onClick={() => removeMenu(menu.id)}>Remove</button>
         </div>
@@ -122,3 +123,12 @@ export default function MenuForm() {
     </div>
   )
 }
+
+// Can edit: ID, Name, Description, Ingredients, Price, Alt text (for image).
+// Uses Joi to validate input (e.g., price must be a number, name is required).
+// Save / Edit Mode : If the user is editing an item, it updates the existing one. / If the user is adding a new one, it creates a new menu item.
+// Filter menu items by typing keywords.
+// Toggle between "Food" and "Drinks" menus.
+// Shows success messages / errors.
+// Below the form, it displays a list of current menus with Edit / Remove buttons.
+
