@@ -3,6 +3,7 @@ import Menu from "./pages/Menu";
 import { HashRouter,Routes,Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Form from './components/Form'
+import AddPizzaForm from "./components/Addpizzaitem";
 
 
 // function AppWrapper() {
@@ -26,6 +27,7 @@ import Form from './components/Form'
 function App() {
   return (
     <>
+	 
 	<HashRouter>
 		<Routes>
 			<Route path="/form" element={<Form></Form>}></Route>
