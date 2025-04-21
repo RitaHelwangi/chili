@@ -10,24 +10,17 @@ export const useMenuStore = create((set, get) => ({
   fetchMenus: async () => {
     try {
       const res = await fetch(`${api}?method=load&key=${key}`)
-      const result = await res.json()
+      const text = await res.text()
 
-      let parsed = []
-
-      if (Array.isArray(result)) {
-        parsed = result
-      } else if (Array.isArray(result.value)) {
-        parsed = result.value
-      } else if (typeof result.value === 'string') {
-        parsed = JSON.parse(result.value)
-      } else {
-        console.error("❌ Unrecognized API format:", result)
-        return
+      try {
+        const json = JSON.parse(text)
+        const parsed = typeof json === 'string' ? JSON.parse(json) : json
+        set({ menus: Array.isArray(parsed) ? parsed : [] })
+      } catch {
+        console.error('❌ Unrecognized API format:', text)
       }
-
-      set({ menus: parsed })
     } catch (err) {
-      console.error("❌ Failed to fetch menus:", err)
+      console.error('❌ Fetch error:', err)
     }
   },
   addMenu: (menu) => set(state => ({ menus: [...state.menus, menu] })),
@@ -37,11 +30,17 @@ export const useMenuStore = create((set, get) => ({
     try {
       await fetch(`${api}?method=save`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key, value: JSON.stringify(get().menus) })
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          key,
+          value: JSON.stringify(get().menus)
+        })
       })
     } catch (err) {
-      console.error("❌ Failed to save menus:", err)
+      console.error('❌ Save error:', err)
     }
   }
 }))

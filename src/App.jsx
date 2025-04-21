@@ -1,4 +1,4 @@
-// src/App.jsx 
+// src/App.jsx
 
 import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
@@ -10,8 +10,8 @@ export default function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Navigate to="/admin" />} />
         <Route path="/admin" element={<MenuEditor />} />
+        <Route path="*" element={<Navigate to="/admin" />} />
       </Routes>
     </>
   )
