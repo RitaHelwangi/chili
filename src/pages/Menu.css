@@ -8,9 +8,9 @@
 	width: 30%;
 	padding: 20px;
 	background-color: #8DA253;
-	border: none;
 	margin: 10px;
 	transition: all 0.5s;
+	border: 2px solid hsla(77, 60%, 20%, 0.5)
 
 }
 .menu-nav button:hover{

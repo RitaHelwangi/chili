@@ -13,16 +13,9 @@ function MenuItemFood(props){
 		</div>
 		<div className="menu-desc"><p>{props.description}</p>
 		<p>{props.ingredients}</p>
-		<button className="order-button">Add to Order</button>
+		<button className="order-btn">Add to Order</button>
 		</div>
-		
-		
-		
-		
-		
-		
 		</div>
-		
 		</div>
 		
 	)
