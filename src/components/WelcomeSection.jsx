@@ -1,5 +1,6 @@
 import React from "react";
 import "./WelcomeSection.css";
+import { NavLink } from "react-router-dom";
 
 const WelcomeSection = () => {
   return (
@@ -38,7 +39,7 @@ const WelcomeSection = () => {
             <p className="ctaText">
               Check out our menu! <br />
             </p>
-            <button className="orderText">Order!</button>
+          <NavLink to="/menu"> <button className="orderText">Order!</button></NavLink> 
           </div>
         </div>
       </div>
