@@ -1,4 +1,7 @@
 
+.input-field-add {
+    background-color: white;
+}
 .add-food-input {
     background-color: #8a9b55;
     padding: 2rem;
@@ -8,7 +11,7 @@
     max-width: 600px;
     margin: 2rem auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 2fr);
     gap: 1rem 2rem;
   }
   
@@ -34,9 +37,26 @@
     box-sizing: border-box;
   }
   
-  .add-food-input .add-description,
-  .add-food-input .ingredients-add-input {
+  
+  
+  .error {
+    color: red;
+    font-size: 0.8rem;
     grid-column: span 2;
   }
   
- 
+  
+  .add-new-food-item {
+    grid-column: span 2;
+    justify-self: start;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-new-food-item:hover {
+    background-color: #e2e2e2;
+  }
+  

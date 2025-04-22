@@ -70,7 +70,7 @@ const AddPizzaForm = () => {
         <h2>Lägg till ny rätt</h2>
 
         <label className='text-add-input'>Namn:</label>
-        <input
+        <input className='input-field-add'
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -79,7 +79,7 @@ const AddPizzaForm = () => {
         {isFieldInvalid(name, touched.name) && <p className="error">Namn är obligatoriskt.</p>}
 
         <label className='picture-add-input'>Bildlänk:</label>
-        <input
+        <input className='input-field-add'
           type="text"
           value={image}
           onChange={(event) => setImage(event.target.value)}
@@ -88,7 +88,8 @@ const AddPizzaForm = () => {
         {isFieldInvalid(image, touched.image) && <p className="error">Bildlänk är obligatoriskt.</p>}
 
         <label className='price-add-input'>Pris:</label>
-        <input
+        <input 
+          className='input-field-add'
           type="text"
           value={price}
           onChange={(event) => setPrice(event.target.value)}
@@ -97,8 +98,8 @@ const AddPizzaForm = () => {
         {isFieldInvalid(price, touched.price) && <p className="error">Pris är obligatoriskt.</p>}
 
         <label className='description-add-input'>Description:</label>
-        <input
-          className="add-description"
+        <input 
+          className='input-field-add'
           value={description}
           type="text"
           onChange={(event) => setDescription(event.target.value)}
@@ -108,6 +109,7 @@ const AddPizzaForm = () => {
 
         <label className='ingredients-add-input'>Ingredients :</label>
         <input
+          className='input-field-add'
           type="text"
           value={ingredients}
           onChange={(event) => setIngredients(event.target.value)}
