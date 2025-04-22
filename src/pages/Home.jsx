@@ -1,6 +1,8 @@
+import WelcomeSection from "../components/WelcomeSection.jsx"
+
 function Home(){
 	return(
-		<div>Home</div>
+        <WelcomeSection />
 	)
 }
 export default Home
