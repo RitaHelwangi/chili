@@ -18,7 +18,7 @@ const Header = () => {
             </nav>
           </div>
           <div className="workers-column">
-            <div className="for-workers">For workers</div>
+            <div className="for-workers">Employees</div>
           </div>
         </div>
       </div>
