@@ -27,9 +27,11 @@
 }
 .order-btn{
 	background-color: hsl(76, 51%, 29%);
+	width: 100%;
 	color: white;
 	cursor: pointer;
 	transition: all 0.5s;
+	height:70px;
 }
 .order-btn:hover{
 	background-color: #B93324;
