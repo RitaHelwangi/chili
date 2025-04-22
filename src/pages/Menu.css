@@ -31,12 +31,13 @@
 	background-color: antiquewhite;
 	border-radius: 100%;
 	position: absolute;
-	top: 40px;
+	top: 170px;
 	left: 50px;
 	font-size: 25px;
 	padding: 15px;
 }
 @media screen and (max-width:1000px) {
+	
 	.menu-item-div{
 		display: grid;
 		grid-template-columns: 1fr ;
@@ -47,6 +48,12 @@
 		left: 10px;
 		font-size: 20px;
 		padding: 10px;
+	}
+}
+
+@media screen and (max-width:400px){
+	.icon-shop{
+		top: 410px;
 	}
 }
 

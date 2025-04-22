@@ -115,6 +115,9 @@ html, body {
     padding-left: 20px;
     padding-right: 20px;
   }
+  .icon-shop{
+	top: 380px;
+  }
 
   .header-content {
     flex-direction: column;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import MenuItemFood from "../components/MenuItem/MenuItem";
 import MenuItemDrink from "../components/MenuItem/MenuItemDrink";
 import { NavLink } from "react-router-dom";
+import "../components/Header.css"
 
 function Menu() {
 	
