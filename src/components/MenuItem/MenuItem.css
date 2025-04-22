@@ -50,5 +50,14 @@
 	}
 }
 .order-button-drink{
+	background-color: hsl(76, 51%, 29%);
+    width: 80%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    height: 50;
 	margin-top: 50px;
+}
+.order-button-drink:hover{
+	background-color: #B93324;
 }
