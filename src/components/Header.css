@@ -1,0 +1,151 @@
+/* Header component styles */
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+.header {
+  border-radius: 0px 0px 0px 0px;
+  box-sizing: border-box;
+}
+
+.header-container {
+  background-color: rgba(141, 162, 83, 1);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+  padding: 13px 52px;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: space-between;
+}
+
+/* Logo column */
+.logo-column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 15%;
+  margin-left: 0px;
+}
+
+.logo {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 95px;
+  border-radius: 200px;
+  flex-shrink: 0;
+}
+
+/* Navigation column */
+.nav-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  width: 70%;
+  margin-left: 20px;
+}
+
+.nav-links {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 40px 49px;
+  align-self: stretch;
+  font-family:
+    "Inknut Antiqua",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  color: rgba(255, 240, 193, 1);
+  font-weight: 600;
+  text-align: center;
+  line-height: 43px;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.food {
+  color: rgba(255, 240, 192, 1);
+}
+
+.book-table {
+  flex-basis: auto;
+}
+
+.workers-column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  
+}
+
+.for-workers {
+  color: rgba(0, 0, 0, 1);
+  font-size: 20px;
+  font-family:
+    "Inknut Antiqua",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  line-height: 43px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-self: stretch;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .header-container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .logo-column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .logo {
+    margin-top: 40px;
+  }
+
+  .nav-column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .nav-links {
+    margin-top: 40px;
+  }
+
+  .workers-column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .for-workers {
+    margin-top: 40px;
+  }
+}
