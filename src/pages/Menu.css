@@ -57,3 +57,12 @@
 	}
 }
 
+.basket{
+	top: 4px;
+	
+	position: absolute;
+	border: 2px solid red;
+	border-radius: 100%;
+padding: 5px;
+color: black;
+}

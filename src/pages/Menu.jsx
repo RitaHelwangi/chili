@@ -5,8 +5,11 @@ import MenuItemFood from "../components/MenuItem/MenuItem";
 import MenuItemDrink from "../components/MenuItem/MenuItemDrink";
 import { NavLink } from "react-router-dom";
 import "../components/Header.css"
-
+import { useOrderStore } from "../data/orderStore";
 function Menu() {
+	const cart = useOrderStore((state) => state.cart);
+	const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
 	
   const [selectedCategory, setSelectedCategory] = useState("food");
 
@@ -19,8 +22,9 @@ function Menu() {
         <button onClick={() => setSelectedCategory("drink")}>Drink</button>
       </div>
 
-      <div className="icon-shop">
-       <NavLink to="/order"> <i className="fas fa-shopping-cart"></i></NavLink>
+      <div className="icon-shop">  
+       <NavLink to="/order"> <i className="fas fa-shopping-cart"><span className="basket"> {totalItems}</span></i></NavLink>
+	
       </div>
 
       <div className="menu-item-div">
