@@ -23,7 +23,7 @@ function Menu() {
       </div>
 
       <div className="icon-shop">  
-       <NavLink to="/order"> <i className="fas fa-shopping-cart"><span className="basket"> {totalItems}</span></i></NavLink>
+       <NavLink to="/order"> <i className="fas fa-shopping-cart">{cart.length>0 &&(<span className="basket"> {totalItems}</span>)}</i></NavLink>
 	
       </div>
 

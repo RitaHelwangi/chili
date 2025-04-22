@@ -49,6 +49,11 @@
 		font-size: 20px;
 		padding: 10px;
 	}
+	.basket{
+		left: 28px;
+		font-size: 13px;
+	}
+
 }
 
 @media screen and (max-width:400px){
@@ -58,11 +63,13 @@
 }
 
 .basket{
-	top: 4px;
-	
+	font-weight: bolder;
+	font-size: 15px;
+	top: 40px;
+	background-color: rgb(251, 255, 240);
 	position: absolute;
-	border: 2px solid red;
+	border: 2px solid rgb(33, 61, 13);
 	border-radius: 100%;
-padding: 5px;
+padding: 6px;
 color: black;
 }
