@@ -1,6 +1,7 @@
 import React from 'react'
 import { useOrderStore } from '../data/orderStore'
-import "../pages/Order.css"
+import '../pages/Order.css'
+import { pizzaMenu, drinksMenu } from '../data/menuStore'
 
 function Order() {
   const cart = useOrderStore(state => state.cart)
