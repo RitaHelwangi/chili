@@ -1,5 +1,22 @@
 import "../MenuItem/MenuItem.css"
+import { useOrderStore } from "../../data/orderStore";
+
 function MenuItemFood(props){
+
+	const addToCart = useOrderStore((state) => state.addToCart);
+
+	const handleAddToCart = () => {
+		const item = {
+		  id: props.id, 
+		  name: props.name,
+		  price: props.price,
+		  image: props.image,
+		  description: props.description,
+		  ingredients: props.ingredients,
+		};
+		addToCart(item);
+	  };
+	
 	return(
 		
 		<div className="menu-item">
@@ -13,7 +30,7 @@ function MenuItemFood(props){
 		</div>
 		<div className="menu-desc"><p>{props.description}</p>
 		<p>{props.ingredients}</p>
-		<button className="order-btn">Add to Order</button>
+		<button className="order-btn" onClick={handleAddToCart}>Add to Order</button>
 		</div>
 		</div>
 		</div>

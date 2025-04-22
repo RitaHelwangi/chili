@@ -3,6 +3,7 @@ import { pizzaMenu, drinksMenu } from "../data/menuStore";
 import { useState } from "react";
 import MenuItemFood from "../components/MenuItem/MenuItem";
 import MenuItemDrink from "../components/MenuItem/MenuItemDrink";
+import { NavLink } from "react-router-dom";
 
 function Menu() {
 	
@@ -18,7 +19,7 @@ function Menu() {
       </div>
 
       <div className="icon-shop">
-        <i className="fas fa-shopping-cart"></i>
+       <NavLink to="/order"> <i className="fas fa-shopping-cart"></i></NavLink>
       </div>
 
       <div className="menu-item-div">
