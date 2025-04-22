@@ -7,6 +7,7 @@ import WelcomeSection from "./components/WelcomeSection.jsx"
 import Footer from "./components/Footer.jsx";
 import Order from './pages/Order';
 import Form from './components/Form'
+import TomSida from './components/TomSida';
 
 
 // function AppWrapper() {
@@ -39,6 +40,7 @@ function App() {
 			<Route path="/menu" element={<Menu></Menu>}></Route>
 			<Route path="/" element={<Home></Home>}></Route>
 			<Route path="/order" element={<Order></Order>}></Route>
+			<Route path="/empty" element={<TomSida />} />
 		</Routes>
 
 	</HashRouter>
