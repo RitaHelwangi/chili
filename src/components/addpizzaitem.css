@@ -1,0 +1,17 @@
+.add-food-input{
+	margin: 30px;
+	display: flex;
+	background-color: hsl(76, 32%, 48%,0.5);
+	padding: 10px;
+    flex-direction: column;
+    columns: 2; 
+}
+
+.text-add-input {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid hsl(76, 32%, 48%);
+    background-color: hsl(76, 32%, 48%,0.5);
+}
+
