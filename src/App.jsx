@@ -7,7 +7,7 @@ import WelcomeSection from "./components/WelcomeSection.jsx"
 import Footer from "./components/Footer.jsx";
 import Order from './pages/Order';
 import Form from './components/Form'
-import AddPizzaForm from "./components/Addpizzaitem";
+import TomSida from './components/TomSida';
 
 
 // function AppWrapper() {
@@ -31,23 +31,21 @@ import AddPizzaForm from "./components/Addpizzaitem";
 function App() {
   return (
     <>
-    <AddPizzaForm/>
-
-
 
 	<Header />
 
-	<HashRouter>
 		<Routes>
 			<Route path="/form" element={<Form></Form>}></Route>
 			<Route path="/menu" element={<Menu></Menu>}></Route>
 			<Route path="/" element={<Home></Home>}></Route>
 			<Route path="/order" element={<Order></Order>}></Route>
+			<Route path="/empty" element={<TomSida />} />
 		</Routes>
 
+	<Footer />
+	
 	</HashRouter>
 	
-	<Footer />
 
       
     </>
