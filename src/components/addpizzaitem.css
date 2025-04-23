@@ -1,62 +1,135 @@
+.input-field-add {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  color: black; 
+}
+
+.add-food-div {
+  background-color: #7e9349; 
+  padding: 20px;
+  max-width: 600px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  
+}
+
+
+.add-food-input {
+  width: 100%;
+}
+
+
+.h2-add-food {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.add-food-input {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px 20px;
+  grid-template-areas:
+    "title title"
+    "image-label desc-label"
+    "image-input desc-input"
+    "name-label price-label"
+    "name-input price-input"
+    ". add-button";
+}
+
+
+.h2-add-food {
+  grid-area: title;
+}
+
+.picture-add-input {
+  grid-area: image-label;
+}
+
+.picture-add-input + .input-field-add {
+  grid-area: image-input;
+}
+
+.text-add-input {
+  grid-area: name-label;
+}
+
+.text-add-input + .input-field-add {
+  grid-area: name-input;
+}
+
+.description-add-input {
+  grid-area: desc-label;
+}
+
+.description-add-input + .input-field-add {
+  grid-area: desc-input;
+}
+
+.price-add-input {
+  grid-area: price-label;
+}
+
+.price-add-input + .input-field-add {
+  grid-area: price-input;
+}
+
+.add-new-food-item {
+  grid-area: add-button;
+  justify-self: end;
+}
+
+
+.ingredients-add-input, 
+.ingredients-add-input + .input-field-add, 
+.ingredients-add-input + .input-field-add + .error,
+.add-food-p {
+  display: none;
+}
+
+
+.text-add-input,
+.picture-add-input,
+.price-add-input,
+.description-add-input {
+  margin-bottom: 5px;
+  font-weight: normal;
+  color: #000;
+}
+
 
 .input-field-add {
-    background-color: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
 }
-.add-food-input {
-    background-color: #8a9b55;
-    padding: 2rem;
-    border-radius: 8px;
-    color: #000;
-    font-family: Georgia, serif;
-    max-width: 600px;
-    margin: 2rem auto;
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 1rem 2rem;
-  }
-  
-  
-  .add-food-input h2 {
-    grid-column: span 2;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .add-food-input label {
-    font-weight: bold;
-    font-size: 0.95rem;
-  }
-  
-  .add-food-input input {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  
-  
-  .error {
-    color: red;
-    font-size: 0.8rem;
-    grid-column: span 2;
-  }
-  
-  
-  .add-new-food-item {
-    grid-column: span 2;
-    justify-self: start;
-    background-color: white;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .add-new-food-item:hover {
-    background-color: #e2e2e2;
-  }
-  
+
+
+.add-new-food-item {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-new-food-item::after {
+  content: " +";
+}
+
+
+.error {
+  display: none;
+}
