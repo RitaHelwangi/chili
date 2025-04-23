@@ -11,15 +11,6 @@ const Header = () => {
           <div className="logo-column">
             <img className="logo" src={Logo} alt="Logo" />
           </div>
-          <div className="nav-column">
-            <nav className="nav-links">
-              <NavLink to="/menu" className="nav-item food">Food</NavLink>
-              <NavLink to="/" className="nav-item wines">Wines</NavLink>
-            </nav>
-          </div>
-          <div className="workers-column">
-            <NavLink className="for-workers">Employees</NavLink>
-          </div>
         </div>
       </div>
     </header>

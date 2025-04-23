@@ -115,40 +115,9 @@ html, body {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .icon-shop{
-	top: 380px;
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0px;
-  }
-
-  .logo-column {
-    width: 100%;
-    margin-left: 0;
-  }
 
   .logo {
-    margin-top: 40px;
+    width: 70px;
   }
 
-  .nav-column {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .nav-links {
-    margin-top: 40px;
-  }
-
-  .workers-column {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .for-workers {
-    margin-top: 40px;
-  }
 }
