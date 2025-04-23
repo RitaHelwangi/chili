@@ -32,6 +32,8 @@ function App() {
   return (
     <>
 
+	<HashRouter>
+		
 	<Header />
 
 		<Routes>
