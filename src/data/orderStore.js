@@ -1,35 +1,37 @@
 import { create } from "zustand";
+import { pizzaMenu, drinksMenu } from "../data/menuStore";
 
 export const useOrderStore = create((set) => ({
   cart: [],
 
-  addToCart: (pizza) =>
+  addToCart: (item) =>
     set((state) => {
-      const exists = state.cart.find((item) => item.id === pizza.id);
+      console.log("Item being added:", item); // Debugging: Log the item
+      const exists = state.cart.find((cartItem) => cartItem.id === item.id);
       if (exists) {
-        return {
-          cart: state.cart.map((item) =>
-            item.id === pizza.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
-        };
+        const updatedCart = state.cart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+        return { cart: updatedCart };
       }
-      return { cart: [...state.cart, { ...pizza, quantity: 1 }] };
+      return { cart: [...state.cart, { ...item, quantity: 1 }] };
     }),
 
-  removeFromCart: true,
-  removeFromCart: (pizzaId) =>
+  removeFromCart: (itemId) =>
     set((state) => ({
-      cart: state.cart.filter((item) => item.id !== pizzaId),
+      cart: state.cart.filter((item) => item.id !== itemId),
     })),
 
-  updateQuantity: (pizzaId, quantity) =>
+  updateQuantity: (itemId, quantity) =>
     set((state) => ({
       cart: state.cart.map((item) =>
-        item.id === pizzaId ? { ...item, quantity } : item
+        item.id === itemId ? { ...item, quantity } : item
       ),
     })),
 
   clearCart: () => set({ cart: [] }),
+
+  getAllMenuItems: () => [...pizzaMenu, ...drinksMenu],
 }));
