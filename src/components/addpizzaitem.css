@@ -34,7 +34,7 @@
 
 .add-food-input {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 2fr);
   grid-template-rows: auto;
   grid-gap: 10px 20px;
   grid-template-areas:
@@ -89,12 +89,7 @@
 }
 
 
-.ingredients-add-input, 
-.ingredients-add-input + .input-field-add, 
-.ingredients-add-input + .input-field-add + .error,
-.add-food-p {
-  display: none;
-}
+
 
 
 .text-add-input,
@@ -130,6 +125,9 @@
 }
 
 
-.error {
-  display: none;
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  margin-bottom: 8px;
 }
