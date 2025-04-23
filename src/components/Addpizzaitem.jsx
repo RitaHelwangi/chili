@@ -14,26 +14,44 @@ const AddPizzaForm = () => {
   const [menu, setMenu] = useState(pizzaMenu);
 
   const pizzaSchema = Joi.object({
-    name: Joi.string().min(2).required().label('Name'),
-    image: Joi.string().pattern(/^(http|https):\/\//).required().label('Image URL'),
-    price: Joi.number().positive().required().label('Price'),
-    description: Joi.string().min(5).required().label('Description'),
-    ingredients: Joi.array().items(Joi.string().min(1)).required().label('Ingredients'),
+    name: Joi.string().min(2).required().messages({
+      'string.empty': 'Pizza name cannot be empty',
+      'string.min': 'Pizza name 2 characters long',
+      'any.required': 'Pizza name is required'
+    }).label('Name'),
+    image: Joi.string().pattern(/^(http|https):\/\//).required().messages({
+      'string.empty': 'URL cannot be empty',
+      'string.pattern.base': 'URL start with http://',
+      'any.required': 'Image URL is required'
+    }).label('Image URL'),
+    
+    price: Joi.number().positive().required().messages({
+      'number.base': 'Price must be a valid number',
+      'number.positive': 'Price must be greater than zero',
+      'any.required': 'Price is required'
+    }).label('Price'),
+    
+    description: Joi.string().required().messages({
+      'string.empty': 'Description cannot be empty',
+      'any.required': 'Description is required'
+    }).label('Description'),
+    
+    ingredients: Joi.string().min(2).required().messages({
+      'string.empty': 'Ingredients name cannot be empty',
+      'string.min': 'Ingredients name 2 characters long',
+      'any.required': 'Ingredients name is required'
+    }).label('Ingredients'),
   });
-
   // Validation function
   const validateForm = () => {
-    const preparedIngredients = ingredients
-      .split(',')
-      .map(item => item.trim())
-      .filter(item => item.length > 0);
+    
 
     const newPizza = {
       name,
       image,
       price: Number(price),
       description,
-      ingredients: preparedIngredients,
+      ingredients,
     };
     console.log('New pizza object created:', newPizza);
     console.log('Before adding, menu has', menu.length, 'items');
@@ -106,63 +124,75 @@ const AddPizzaForm = () => {
 
   return (
     <div className='add-food-div'>
-      <section className='add-food-input'>
-        <h2 className='h2-add-food'>Add new Food</h2>
-
-        <label>Name:</label>
-        <input
-          className='input-field-add'
-          type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-        />
-        {touched.name && errors.name && <p className='error-text'>{errors.name}</p>}
-
-        <label>Picture:</label>
-        <input
-          className='input-field-add'
-          type='text'
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, image: true }))}
-        />
-        {touched.image && errors.image && <p className='error-text'>{errors.image}</p>}
-
-        <label>Price:</label>
-        <input
-          className='input-field-add'
-          type='text'
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, price: true }))}
-        />
-        {touched.price && errors.price && <p className='error-text'>{errors.price}</p>}
-
-        <label>Description:</label>
-        <input
-          className='input-field-add'
-          type='text'
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, description: true }))}
-        />
-        {touched.description && errors.description && (
-          <p className='error-text'>{errors.description}</p>
-        )}
-
-        <label>Ingredients:</label>
-        <input
-          className='input-field-add'
-          type='text'
-          value={ingredients}
-          onChange={(e) => setIngredients(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, ingredients: true }))}
-        />
-        {touched.ingredients && errors.ingredients && (
-          <p className='error-text'>{errors.ingredients}</p>
-        )}
-
+  <section className='add-food-input'>
+    <h2 className='h2-add-food'>Add new Food</h2>
+    
+    <div className='form-column'>
+      <label>Name:</label>
+      <input
+        className='input-field-add'
+        type='text'
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+      />
+      <p className={`error-text ${touched.name && errors.name ? 'visible' : ''}`}>
+            {errors.name}
+          </p>
+      
+      <label>Price:</label>
+      <input
+        className='input-field-add'
+        type='text'
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        onBlur={() => setTouched((prev) => ({ ...prev, price: true }))}
+      />
+      <p className={`error-text ${touched.price && errors.price ? 'visible' : ''}`}>
+            {errors.price}
+          </p>
+      
+      <label>Ingredients:</label>
+      <input
+        className='input-field-add'
+        type='text'
+        value={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
+        onBlur={() => setTouched((prev) => ({ ...prev, ingredients: true }))}
+      />
+      <p className={`error-text ${touched.ingredients && errors.ingredients ? 'visible' : ''}`}>
+           {errors.ingredients}
+          </p>
+    </div>
+    
+    <div className='form-column'>
+      <label>Picture:</label>
+      <input
+        className='input-field-add'
+        type='text'
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+        onBlur={() => setTouched((prev) => ({ ...prev, image: true }))}
+      />
+      <p className={`error-text ${touched.image && errors.image ? 'visible' : ''}`}>
+            {errors.image}
+          </p>
+      
+      <label>Description:</label>
+      <input
+        className='input-field-add'
+        type='text'
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        onBlur={() => setTouched((prev) => ({ ...prev, description: true }))}
+      />
+      {touched.description && errors.description && (
+        <p className={`error-text ${touched.description && errors.description ? 'visible' : ''}`}>
+        {errors.description}
+      </p>
+      )}
+      
+      <div className='button-container'>
         <button
           className='add-new-food-item'
           onClick={handleAddPizza}
@@ -170,10 +200,10 @@ const AddPizzaForm = () => {
         >
           Add
         </button>
-      </section>
-
-      <p>Current menu items: {menu.length}</p>
+      </div>
     </div>
+  </section>
+</div>
   );
 };
 
