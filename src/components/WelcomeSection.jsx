@@ -1,6 +1,7 @@
 import React from "react";
 import "./WelcomeSection.css";
 import { NavLink } from "react-router-dom";
+import pizzaLogo from "../assets/Order.svg";
 
 const WelcomeSection = () => {
   return (
@@ -35,7 +36,7 @@ const WelcomeSection = () => {
             </div>
           </div>
           <div className="ctaContainer">
-            <img className="ctaImage" alt="Logo"/>
+            <img className="ctaImage" alt="Logo" src={pizzaLogo}/>
             <p className="ctaText">
               Check out our menu! <br />
             </p>
