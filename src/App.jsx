@@ -10,23 +10,7 @@ import Form from './components/Form'
 import TomSida from './components/TomSida';
 
 
-// function AppWrapper() {
-// 	const location = useLocation();
-// 	const isFormPage = location.pathname === "/form";
-  
-// 	return (
-// 	  <>
-		
-// 		{!isFormPage && (
-// 		  <NavLink to="/form">Go to Form</NavLink>
-// 		)}
-		
-// 		<Routes>
-		  
-// 		</Routes>
-// 	  </>
-// 	);
-//   }
+
 
 function App() {
   return (
