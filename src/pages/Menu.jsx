@@ -17,6 +17,7 @@ function Menu() {
 
   return (
     <div className="menu-div">
+		<div className="button-menu">
       <div className="menu-nav">
         <button onClick={() => setSelectedCategory("food")}>Food</button>
         <button onClick={() => setSelectedCategory("drink")}>Drink</button>
@@ -25,7 +26,7 @@ function Menu() {
       <div className="icon-shop">  
        <NavLink to="/order"> <i className="fas fa-shopping-cart">{cart.length>0 &&(<span className="basket"> {totalItems}</span>)}</i></NavLink>
 	
-      </div>
+      </div></div>
 
       <div className="menu-item-div">
         {selectedCategory === "food"
