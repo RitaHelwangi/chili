@@ -14,38 +14,51 @@ function Order() {
 
   return (
     <div className="order-page">
-      <h2>Your Order</h2>
+      <h2 className="order-summary">Your Order</h2>
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="order-summary">Your cart is empty.</p>
       ) : (
         <>
           <ul className="order-list">
             {cart.map((item) => (
-              <li key={item.id} className="order-item"> {/* Use item.id as the key */}
+              <li key={item.id} className="order-item">
                 <img src={item.image} alt={item.name} className="order-image" />
                 <div className="order-info">
                   <h4>{item.name}</h4>
                   <p>
-                    ${item.price} x {item.quantity}
+                    {item.price} x {item.quantity} SEK
                   </p>
-                  <input
-                    type="number"
-                    min="1"
-                    value={item.quantity}
-                    onChange={(e) =>
-                      updateQuantity(item.id, parseInt(e.target.value))
-                    }
-                  />
-                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                  <div className="order-controls">
+                    <input
+                      type="number"
+                      min="1"
+                      value={item.quantity}
+                      className="quantity-input"
+                      onChange={(e) =>
+                        updateQuantity(item.id, parseInt(e.target.value))
+                      }
+                    />
+                    <button
+                      className="remove-btn"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
           <div className="order-summary">
             <p>
-              <strong>Total:</strong> ${total.toFixed(2)}
+              <strong>Total:</strong> {total.toFixed(2)} SEK
             </p>
-            <button onClick={clearCart}>Clear Cart</button>
+            <div className="order-buttons">
+              <button className="clear-btn" onClick={clearCart}>
+                Clear Cart
+              </button>
+              <button className="checkout-btn">Checkout</button>
+            </div>
           </div>
         </>
       )}
