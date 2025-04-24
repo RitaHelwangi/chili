@@ -56,14 +56,10 @@
 
 }
 
-@media screen and (max-width:400px){
-	.icon-shop{
-		top: 410px;
-	}
-}
+
 
 .basket{
-	font-weight: bolder;
+	font-weight: bolderg;
 	font-size: 15px;
 	top: 40px;
 	background-color: rgb(251, 255, 240);
