@@ -125,3 +125,9 @@ section {
 	  text-align: left;
 	}
   }
+
+@media (max-width: 750px) and (min-width: 321px) {
+  .footer-container {
+    padding: 10px;
+  }
+}

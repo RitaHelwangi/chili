@@ -30,11 +30,13 @@
 }
 
 .welcomeMessageContainer {
-  
   background-color: rgba(84, 146, 46, 0.85);
   opacity: 85%;
   padding: 30px 30px 40px 30px;
-  }
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
 .rowContainer {
   display: flex;
@@ -66,18 +68,13 @@
 
 .welcomeTitle {
   color: rgba(255, 240, 192, 1);
-  font-size: 32px;
   line-height: 49px;
   margin: 0;
-}
-
-.welcomeSubtitle {
-  font-size: 24px;
+  font-size: 2.1rem; /* Slightly smaller than before */
 }
 
 .welcomeDescription {
   color: rgba(255, 240, 193, 1);
-  font-size: 18px;
   margin-top: 33px;
   margin-bottom: 0;
 }
@@ -91,7 +88,6 @@
 
 .openingHours {
   color: rgba(255, 241, 193, 1);
-  font-size: 14px;
   font-family:
     "Inknut Antiqua",
     -apple-system,
@@ -101,15 +97,14 @@
   font-weight: 600;
   line-height: 30px;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 90px;
   margin-bottom: 0;
 }
 
 .ctaContainer {
   align-self: center;
   display: flex;
-  margin-top: 161px;
-  max-width: 100%;
+  margin: 160px 50px 20px 50px;
   padding-left: 46px;
   padding-right: 46px;
   padding-top: 32px;
@@ -166,48 +161,50 @@
   font-size: 1rem; 
 }
 
-/* Media Queries for Responsiveness */
-@media screen and (max-width: 768px) {
-  .contentWrapper {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .rowContainer {
-    flex-direction: column;
-  }
-
-  .leftColumn,
-  .rightColumn {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .openingHours {
-    margin-top: 30px;
-  }
-
-  .ctaContainer {
-    margin-top: 80px;
+@media screen and (max-width: 1100px) {
+  .welcomeMessageContainer {
+    max-width: 95vw;
+    padding: 24px 20px 32px 20px;
+    font-size: 1.1rem;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .contentWrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+@media screen and (max-width: 670px) {
+  .welcomeMessageContainer {
+    max-width: 98vw;
+    padding: 16px 8px 24px 8px;
+    font-size: 1rem;
+    margin-right: 8px;
+    margin-left: 8px;
+    flex-direction: column;
+    text-align: center;
   }
-
+  .rowContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .leftColumn {
+    width: 100%;
+    margin-left: 0;
+  }
   .welcomeTitle {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 1.5rem; /* Adjusted for mobile */
   }
-
-  .welcomeSubtitle {
-    font-size: 20px;
+  .rightColumn {
+    display: none;
   }
+  .openingHours {
+    display: none;
+  }
+}
 
-  .welcomeDescription {
-    font-size: 16px;
+@media screen and (max-width: 320px) {
+  .welcomeMessageContainer {
+    max-width: 100vw;
+    padding: 8px 2px 12px 2px;
+    font-size: 0.9rem;
+  }
+  .welcomeTitle {
+    font-size: 1rem;
   }
 }

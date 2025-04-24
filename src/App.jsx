@@ -32,9 +32,10 @@ function App() {
   return (
     <>
 
+	<HashRouter>
+		
 	<Header />
 
-	<HashRouter>
 		<Routes>
 			<Route path="/form" element={<Form></Form>}></Route>
 			<Route path="/menu" element={<Menu></Menu>}></Route>
@@ -43,9 +44,10 @@ function App() {
 			<Route path="/empty" element={<TomSida />} />
 		</Routes>
 
+	<Footer />
+	
 	</HashRouter>
 	
-	<Footer />
 
       
     </>
