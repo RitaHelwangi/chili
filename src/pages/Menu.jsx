@@ -1,5 +1,5 @@
 import "../pages/Menu.css";
-import { pizzaMenu, drinksMenu } from "../data/menuStore";
+import { food } from "../data/menuStore";
 import { useState } from "react";
 import MenuItemFood from "../components/MenuItem/MenuItem";
 import MenuItemDrink from "../components/MenuItem/MenuItemDrink";
@@ -13,7 +13,7 @@ function Menu() {
 	
   const [selectedCategory, setSelectedCategory] = useState("food");
 
-  const menuToShow = selectedCategory === "food" ? pizzaMenu : drinksMenu;
+  const menuToShow = food.filter((item) => item.category === selectedCategory);
 
   return (
     <div className="menu-div">
