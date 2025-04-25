@@ -125,6 +125,9 @@
   background-color: #b93324;
 }
 
+.checkout-btn:hover {
+  background-color: #b93324;
+}
 .tack-div {
   border-radius: 20px;
   color: white;
