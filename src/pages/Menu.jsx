@@ -33,6 +33,7 @@ function Menu() {
           ? menuToShow.map((item) => (
               <MenuItemFood
                 key={item.id}
+				id={item.id}
                 image={item.image}
                 alt={item.alt}
                 name={item.name}
@@ -44,6 +45,7 @@ function Menu() {
           : menuToShow.map((item) => (
               <MenuItemDrink
                 key={item.id}
+				id={item.id}
                 image={item.image}
                 name={item.name}
                 price={item.price}
