@@ -4,9 +4,9 @@
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.menu-nav button{
-	width: 30%;
-	padding: 20px;
+.button-menu .menu-nav button{
+	font-size: 20px;
+	padding: 10px;
 	background-color: #8DA253;
 	margin: 10px;
 	transition: all 0.5s;
@@ -18,21 +18,22 @@
 	color: white;
 }
 .menu-nav{
+	width: 70%;
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	padding: 30px;
 }
 .menu-item-div{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
+.button-menu{
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
 .icon-shop{
 	background-color: antiquewhite;
 	border-radius: 100%;
-	position: absolute;
-	top: 170px;
-	left: 50px;
 	font-size: 25px;
 	padding: 15px;
 }
@@ -43,33 +44,24 @@
 		grid-template-columns: 1fr ;
 	}
 }
-@media screen and (max-width:750px){
+@media screen and (max-width:600px) {
+	
+	.button-menu{
+		flex-direction: column;
+		display: flex;
+	}
+	.menu-nav{
+	width: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
 	.icon-shop{
-		left: 10px;
+	
 		font-size: 20px;
 		padding: 10px;
 	}
-	.basket{
-		left: 28px;
-		font-size: 13px;
-	}
-
 }
 
-@media screen and (max-width:400px){
-	.icon-shop{
-		top: 410px;
-	}
-}
 
-.basket{
-	font-weight: bolder;
-	font-size: 15px;
-	top: 40px;
-	background-color: rgb(251, 255, 240);
-	position: absolute;
-	border: 2px solid rgb(33, 61, 13);
-	border-radius: 100%;
-padding: 6px;
-color: black;
-}
+

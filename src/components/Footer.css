@@ -14,7 +14,6 @@ body {
 }
 
 .footer-container {
-    display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: #8da253;
@@ -24,5 +23,24 @@ body {
 .address-info {
     display: flex;
     align-items: end;
+    padding-right: 30px;
 }
 
+
+@media screen and (max-width: 750px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .address-info {
+        margin-bottom: 20px;
+    }
+    
+}
+
+@media screen and (min-width: 749px) {
+    .footer-container {
+        display: flex;
+    }
+}

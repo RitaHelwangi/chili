@@ -1,9 +1,15 @@
 import "../MenuItem/MenuItem.css"
 import { useOrderStore } from "../../data/orderStore";
+import { useMenuStore } from "../RemoveButton/HideData"; //import från mig Emma från HideData
 
 function MenuItemFood(props){
 
 	const addToCart = useOrderStore((state) => state.addToCart);
+	const hiddenItems = useMenuStore((state) => state.hiddenItems); //jag Emma har lagt till, från HideData
+
+	const isHidden = hiddenItems.includes(props.id); //från HideData
+
+	if (isHidden) return null; //tar bort renderingen om den är hidden
 
 	const handleAddToCart = () => {
 		const item = {
