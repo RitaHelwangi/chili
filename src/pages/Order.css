@@ -145,3 +145,10 @@
 .back-button{
 	width: 100%;
 }
+@media screen and (max-width:600px) {
+	.tack-div{
+		margin: 20px;
+		padding: 10px;
+	}
+	
+}
