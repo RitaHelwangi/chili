@@ -1,0 +1,210 @@
+/* WelcomeSection.css */
+
+.mainContainer {
+  border-radius: 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 1011px;
+  padding-top: 54px;
+  padding-bottom: 122px;
+  align-items: center;
+  background-image: url('../assets/unsplash_II3Vo7MJ9Z0.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.contentContainer {
+  position: relative;
+  display: flex;
+  margin-bottom: -24px;
+  width: 100%;
+  max-width: 811px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.welcomeMessageContainer {
+  background-color: rgba(84, 146, 46, 0.85);
+  opacity: 85%;
+  padding: 30px 30px 40px 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.rowContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 66%;
+  margin-left: 0;
+}
+
+.textContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: stretch;
+  font-family:
+    "Inknut Antiqua",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+}
+
+.welcomeTitle {
+  color: rgba(255, 240, 192, 1);
+  line-height: 49px;
+  margin: 0;
+  font-size: 2.1rem; /* Slightly smaller than before */
+}
+
+.welcomeDescription {
+  color: rgba(255, 240, 193, 1);
+  margin-top: 33px;
+  margin-bottom: 0;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 34%;
+  padding-bottom: 30px;
+}
+
+.openingHours {
+  color: rgba(255, 241, 193, 1);
+  font-family:
+    "Inknut Antiqua",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 0;
+}
+
+.ctaContainer {
+  align-self: center;
+  display: flex;
+  margin: 160px 50px 20px 50px;
+  padding-left: 46px;
+  padding-right: 46px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  flex-direction: column;
+  align-items: center;
+  font-family:
+    "Inknut Antiqua",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 20px;
+  color: rgba(255, 241, 193, 1);
+  font-weight: 600;
+  text-align: center;
+  background-color: rgba(84, 146, 46, 0.85);
+  opacity: 85%;
+}
+
+.ctaImage {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 50px;
+  height: 120px;
+  max-width: 118px;
+}
+
+.ctaText {
+  line-height: 43px;
+  margin-top: 11px;
+  margin-bottom: 0;
+
+}
+
+.orderText {
+  border-radius: 4px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  width: 102px;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 2;
+  background-color: #b93324;
+  color: rgba(255, 241, 193, 1);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem; 
+}
+
+@media screen and (max-width: 1100px) {
+  .welcomeMessageContainer {
+    max-width: 95vw;
+    padding: 24px 20px 32px 20px;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .welcomeMessageContainer {
+    max-width: 98vw;
+    padding: 16px 8px 24px 8px;
+    font-size: 1rem;
+    margin-right: 8px;
+    margin-left: 8px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .rowContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .leftColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+  .welcomeTitle {
+    font-size: 1.5rem; /* Adjusted for mobile */
+  }
+  .rightColumn {
+    display: none;
+  }
+  .openingHours {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .welcomeMessageContainer {
+    max-width: 100vw;
+    padding: 8px 2px 12px 2px;
+    font-size: 0.9rem;
+  }
+  .welcomeTitle {
+    font-size: 1rem;
+  }
+}

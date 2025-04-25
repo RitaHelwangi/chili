@@ -1,18 +1,41 @@
-// src/App.jsx
+import React from "react";
+import Menu from "./pages/Menu";
+import { HashRouter,Routes,Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Header from "./components/Header.jsx"
+import WelcomeSection from "./components/WelcomeSection.jsx"
+import Footer from "./components/Footer.jsx";
+import Order from './pages/Order';
+import Form from './components/Form'
+import TomSida from './components/TomSida';
 
-import React from 'react'
-import { Route, Routes, Navigate } from 'react-router-dom'
-import Header from './components/Header'
-import MenuEditor from './pages/MenuEditor'
 
-export default function App() {
+
+
+function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/admin" element={<MenuEditor />} />
-        <Route path="*" element={<Navigate to="/admin" />} />
-      </Routes>
+
+	<HashRouter>
+		
+	<Header />
+
+		<Routes>
+			<Route path="/form" element={<Form></Form>}></Route>
+			<Route path="/menu" element={<Menu></Menu>}></Route>
+			<Route path="/" element={<Home></Home>}></Route>
+			<Route path="/order" element={<Order></Order>}></Route>
+			<Route path="/empty" element={<TomSida />} />
+		</Routes>
+
+	<Footer />
+	
+	</HashRouter>
+	
+
+      
     </>
-  )
+  );
 }
+
+export default App;
