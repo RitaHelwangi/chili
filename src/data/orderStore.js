@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { pizzaMenu, drinksMenu } from "../data/menuStore";
+import {food } from "../data/menuStore";
 
 export const useOrderStore = create((set) => ({
   cart: [],
@@ -34,5 +34,5 @@ export const useOrderStore = create((set) => ({
 
   clearCart: () => set({ cart: [] }),
 
-  getAllMenuItems: () => [...pizzaMenu, ...drinksMenu],
+  getAllMenuItems: () => [...food],
 }));
