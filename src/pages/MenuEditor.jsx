@@ -1,6 +1,6 @@
 // src/pages/MenuEditor.jsx
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import MenuForm from '../components/MenuForm'
 
 export default function MenuEditor() {

@@ -51,8 +51,8 @@ body {
   margin: 40px auto;
   padding: 20px;
   max-width: 90%;
-  /*background-color: rgba(141, 162, 83, 0.5);*/
 }
+
 .menu-buttons {
   background-color: transparent;
   padding: 10px;
@@ -67,7 +67,7 @@ body {
   color: white;
   margin: 5px;
   padding: 10px 20px;
-  border: none;
+  border: 2px solid #b83324;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -75,17 +75,15 @@ body {
 }
 
 .menu-button:hover {
-  background-color: #8da253;
-  color: white;
-  /*border: 2px solid #b83324;*/
+  background-color: transparent;
+  color: #b83324;
 }
 
+
 .form-area {
-  /*background-color: #8da253;*/
   display: inline-block;
   padding: 20px;
   border-radius: 8px;
-  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
   margin: 20px auto;
 }
 
