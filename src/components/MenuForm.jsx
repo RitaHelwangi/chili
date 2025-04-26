@@ -1,19 +1,19 @@
-// src\components\MenuForm.jsx 
-
-import React, { useState, useEffect } from 'react'
-import Joi from 'joi'
-import { useMenuStore } from '../store/menuStore'
+// src/components/MenuForm.jsx
+import React, { useState, useEffect } from 'react';
+import Joi from 'joi';
+import { useMenuStore } from '../store/menuStore';
+import './MenuForm.css'; // << เพิ่ม import CSS
 
 export default function MenuForm() {
-  const { menus, addMenu, editMenu, removeMenu, fetchMenus, saveMenus } = useMenuStore()
-  const [form, setForm] = useState({ id: '', name: '', description: '', ingredients: '', price: '', image: '' })
-  const [editingId, setEditingId] = useState(null)
-  const [message, setMessage] = useState('')
-  const [validationError, setValidationError] = useState('')
+  const { menus, addMenu, editMenu, removeMenu, fetchMenus, saveMenus } = useMenuStore();
+  const [form, setForm] = useState({ id: '', name: '', description: '', ingredients: '', price: '', image: '' });
+  const [editingId, setEditingId] = useState(null);
+  const [message, setMessage] = useState('');
+  const [validationError, setValidationError] = useState('');
 
   useEffect(() => {
-    fetchMenus()
-  }, [fetchMenus])
+    fetchMenus();
+  }, [fetchMenus]);
 
   const schema = Joi.object({
     id: Joi.string().required(),
@@ -22,49 +22,42 @@ export default function MenuForm() {
     ingredients: Joi.string().required(),
     price: Joi.number().required(),
     image: Joi.string().uri().allow('').optional()
-  })
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setForm(prev => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async () => {
-    const { id, name, description, ingredients, price, image } = form
-    const formattedIngredients = ingredients.split(',').map(i => i.trim())
-    const menuData = {
-      id,
-      name,
-      description,
-      ingredients: formattedIngredients,
-      price,
-      image
-    }
+    const { id, name, description, ingredients, price, image } = form;
+    const formattedIngredients = ingredients.split(',').map(i => i.trim());
+    const menuData = { id, name, description, ingredients: formattedIngredients, price, image };
 
-    const { error } = schema.validate({ id, name, description, ingredients, price, image })
+    const { error } = schema.validate({ id, name, description, ingredients, price, image });
     if (error) {
-      setValidationError(error.details[0].message)
-      return
+      setValidationError(error.details[0].message);
+      return;
     }
-    setValidationError('')
+    setValidationError('');
 
     if (editingId) {
-      editMenu(menuData)
-      setMessage('Menu updated!')
+      editMenu(menuData);
+      setMessage('Menu updated!');
     } else {
-      const newId = crypto.randomUUID()
-      addMenu({ ...menuData, id: newId })
-      setMessage('Menu added!')
+      const newId = crypto.randomUUID();
+      addMenu({ ...menuData, id: newId });
+      setMessage('Menu added!');
     }
 
-    await saveMenus()
-    setTimeout(() => setMessage(''), 3000)
-    setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '' })
-    setEditingId(null)
-  }
+    await saveMenus();
+    setTimeout(() => setMessage(''), 3000);
+    setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '' });
+    setEditingId(null);
+  };
 
   return (
-    <div className="form-area">
+    <div className="menuform-area">
       <h2>Edit Menu</h2>
 
       <input name="name" value={form.name} onChange={handleChange} placeholder="Name" autoComplete="name" />
@@ -73,25 +66,29 @@ export default function MenuForm() {
       <input name="price" value={form.price} onChange={handleChange} placeholder="Price" type="number" autoComplete="off" />
       <input name="image" value={form.image} onChange={handleChange} placeholder="Image URL" autoComplete="off" />
 
-      <button className="menu-button" onClick={handleSubmit}>{editingId ? 'Update' : 'Save'}</button>
+      <button className="menuform-button" onClick={handleSubmit}>
+        {editingId ? 'Update' : 'Save'}
+      </button>
       {editingId && (
-        <button className="menu-button" onClick={() => {
+        <button className="menuform-button" onClick={() => {
           setEditingId(null);
-          setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '' })
-        }}>Cancel</button>
+          setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '' });
+        }}>
+          Cancel
+        </button>
       )}
       {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
-      {message && <div className="success-message">{message}</div>}
+      {message && <div className="menuform-success-message">{message}</div>}
 
       <h3>Menu List</h3>
       {menus.map(menu => (
-        <div key={menu.id} className="menu-item">
+        <div key={menu.id} className="menuform-item">
           <strong>{menu.name}</strong> - {menu.description}<br />
           <em>{Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : menu.ingredients}</em><br />
           <span>{menu.price} kr</span><br />
           {menu.image && <img src={menu.image} alt={menu.name} width="100" />}<br />
           <button
-            className="menu-button"
+            className="menuform-button"
             onClick={() => {
               setForm({
                 id: menu.id,
@@ -103,10 +100,12 @@ export default function MenuForm() {
               });
               setEditingId(menu.id);
             }}
-          >Edit</button>
-          <button className="menu-button" onClick={() => removeMenu(menu.id)}>Remove</button>
+          >
+            Edit
+          </button>
+          <button className="menuform-button" onClick={() => removeMenu(menu.id)}>Remove</button>
         </div>
       ))}
     </div>
-  )
+  );
 }
