@@ -18,19 +18,16 @@
 
 .order-page {
   padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #fff;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
 }
 
 .order-item {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: #8da253;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
   gap: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   flex-wrap: wrap;
@@ -39,8 +36,8 @@
 .order-image {
   width: 80px;
   height: 80px;
-  border-radius: 0.5rem;
   object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 .order-info h4 {
@@ -83,50 +80,16 @@
 
 .order-summary {
   margin-top: 2rem;
-  text-align: center;
+  text-align: right;
 }
 
-.order-summary p {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.order-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.clear-btn,
 .checkout-btn {
-  flex: 1;
-  margin: 0 0.5rem;
-  background-color: #8da253;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
+  background-color: #e63946;
+  color: white;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: center;
-}
-
-.checkout-btn {
-  background-color: #8da253;
-}
-
-.clear-btn:hover {
-  background-color: #b93324;
-}
-
-.checkout-btn:hover {
-  background-color: #b93324;
 }
 .tack-div {
   border-radius: 20px;

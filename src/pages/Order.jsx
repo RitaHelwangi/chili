@@ -14,43 +14,31 @@ function Order() {
 	setIsclicked(true)
   }
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-  console.log(cart); // Debugging: Log the cart
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
   return (
-    <div className="order-page">
-      <h2 className="order-summary">Your Order</h2>
+    <div className='order-page'>
+      <h2>Your Order</h2>
       {cart.length === 0 ? (
-        <p className="order-summary">Your cart is empty.</p>
+        <p>Your cart is empty.</p>
       ) : (
         <>
-          <ul className="order-list">
-            {cart.map((item) => (
-              <li key={item.id} className="order-item">
-                <img src={item.image} alt={item.name} className="order-image" />
-                <div className="order-info">
+          <ul className='order-list'>
+            {cart.map(item => (
+              <li key={item.id} className='order-item'>
+                <img src={item.image} alt={item.name} className='order-image' />
+                <div className='order-info'>
                   <h4>{item.name}</h4>
-                  <p>
-                    {item.price} x {item.quantity} SEK
-                  </p>
-                  <div className="order-controls">
-                    <input
-                      type="number"
-                      min="1"
-                      value={item.quantity}
-                      className="quantity-input"
-                      onChange={(e) =>
-                        updateQuantity(item.id, parseInt(e.target.value))
-                      }
-                    />
-                    <button
-                      className="remove-btn"
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
+                  <p>${item.price} x {item.quantity}</p>
+                  <input
+                    type='number'
+                    min='1'
+                    value={item.quantity}
+                    onChange={(e) =>
+                      updateQuantity(item.id, parseInt(e.target.value))
+                    }
+                  />
+                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
                 </div>
               </li>
             ))}
@@ -78,7 +66,7 @@ function Order() {
         </>
       )}
     </div>
-  );
+  )
 }
 
-export default Order;
+export default Order

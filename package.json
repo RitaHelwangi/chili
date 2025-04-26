@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@remix-run/router": "^1.23.0",
     "joi": "^17.13.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
