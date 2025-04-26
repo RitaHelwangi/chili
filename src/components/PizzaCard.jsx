@@ -1,9 +1,11 @@
 import React from 'react'
 import { useOrderStore } from '../data/orderStore'
-import '../styles/order.css'
+import '../pages/Order.css'
 
 function PizzaCard({ pizza }) {
   const addToCart = useOrderStore(state => state.addToCart)
+  console.log("adding to cart", pizza)
+  addToCart(pizza)
 
   return (
     <div className='pizza-card'>

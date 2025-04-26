@@ -1,19 +1,28 @@
 import "../pages/Menu.css";
-import { food } from "../data/menuStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuItemFood from "../components/MenuItem/MenuItem";
 import MenuItemDrink from "../components/MenuItem/MenuItemDrink";
 import { NavLink } from "react-router-dom";
 import "../components/Header.css"
 import { useOrderStore } from "../data/orderStore";
+import { loadFromApi } from "../data/api";
 function Menu() {
 	const cart = useOrderStore((state) => state.cart);
 	const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  
+	const [menuData, setMenuData] = useState([]);
+	useEffect(() => {
+		loadFromApi()
+		  .then((data) => {
+			setMenuData(data); 
+		  })
+		  .catch((err) => {
+			console.error("Error loading menu:", err);
+		  });
+	  }, []);
 	
   const [selectedCategory, setSelectedCategory] = useState("food");
 
-  const menuToShow = food.filter((item) => item.category === selectedCategory);
+  const menuToShow = menuData.filter((item) => item.category === selectedCategory);
 
   return (
     <div className="menu-div">
@@ -33,6 +42,7 @@ function Menu() {
           ? menuToShow.map((item) => (
               <MenuItemFood
                 key={item.id}
+				id={item.id}
                 image={item.image}
                 alt={item.alt}
                 name={item.name}
@@ -44,6 +54,7 @@ function Menu() {
           : menuToShow.map((item) => (
               <MenuItemDrink
                 key={item.id}
+				id={item.id}
                 image={item.image}
                 name={item.name}
                 price={item.price}

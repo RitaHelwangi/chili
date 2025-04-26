@@ -9,6 +9,7 @@ import Order from './pages/Order';
 import Form from './components/Form';
 import TomSida from './components/TomSida';
 import Admin from './pages/Admin';
+import MenuForm from './components/MenuForm.jsx';  
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/empty" element={<TomSida />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/editMenu" element={<MenuForm />} />
         </Routes>
         <Footer />
       </HashRouter>
