@@ -8,6 +8,7 @@ import Footer from "./components/Footer.jsx";
 import Order from './pages/Order';
 import Form from './components/Form';
 import TomSida from './components/TomSida';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/order" element={<Order />} />
           <Route path="/empty" element={<TomSida />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />
       </HashRouter>
