@@ -1,3 +1,9 @@
+body {
+    background-color: #fef0c1;
+    color: black;
+    text-align: center;
+}
+
 .menuform-area {
     display: inline-block;
     padding: 20px;
@@ -19,13 +25,17 @@
     background-color: #b83324;
     color: white;
     margin: 5px;
-    padding: 10px 20px;
+    padding: 6px 12px; 
     border: 2px solid #b83324;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
+    font-size: 14px; 
+    width: auto; 
+    display: inline-block; 
   }
+  
   
   .menuform-button:hover {
     background-color: transparent;
@@ -46,7 +56,7 @@
     display: inline-block;
     width: 260px;
     vertical-align: top;
-    text-align: left;
+    text-align: center;
   }
   
   .menuform-item img {
@@ -54,4 +64,10 @@
     border-radius: 4px;
     margin-bottom: 8px;
   }
+
+  .menuform-area input {
+    background-color: white;
+    color: black;
+  }
+
   
