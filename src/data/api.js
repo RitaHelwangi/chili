@@ -1,73 +1,34 @@
-const api = 'https://forverkliga.se/JavaScript/api/jsonStore.php';
-const key = 'chilis-unique-key';
+// src/data/api.js
 
-const menuObject = [
-  {
-    id: 1,
-    name: "Bruschetta",
-    description: "Grillat bröd toppat med tomat, vitlök och basilika.",
-    ingredients: ["Bröd", "Tomat", "Vitlök", "Basilika", "Olivolja"],
-    price: 55,
-    image: "https://example.com/images/bruschetta.jpg"
-  },
-  {
-    id: 2,
-    name: "Insalata Caprese",
-    description: "Sallad med tomater, mozzarella och basilika.",
-    ingredients: ["Tomater", "Mozzarella", "Basilika", "Olivolja", "Salt"],
-    price: 75,
-    image: "https://example.com/images/caprese.jpg"
-  }
-];
+const api = 'https://forverkliga.se/JavaScript/api/jsonStore.php'
+const key = 'chilis-unique-key'
 
-async function saveMenu() {
+export async function saveMenu(menuObject) {
   try {
-    const response = await fetch(`${api}?method=save`, {
+    await fetch(`${api}?method=save`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        key: key,         // this is the key we use to get our data, didn't have to request a key from api
-        value: menuObject // this is where we put the menu object
+        key,
+        value: JSON.stringify(menuObject)
       })
-    });
-    const result = await response.json(); 
-    console.log("Menu was saved", result);
-  } catch (error) {
-    console.log("Save failed", error);
+    })
+  } catch (err) {
+    console.error("Save failed", err)
   }
 }
 
-async function loadFromApi() {
+export async function loadFromApi() {
   try {
-    const url = `${api}?method=load&key=${key}`;
-    const response = await fetch(url, {
-      method: 'GET'
-    });
-
-    const data = await response.json();
-    console.log("Raw API response:", data);
-
-    if (!Array.isArray(data)) {  
-      console.error("Unexpected API format:", data);
-      return null;
-    }
-
-    console.log("Loaded from API:", data);
-    return data;
-  } catch (error) {
-    console.error("Failed to load from API", error);
-    return null;
+    const res = await fetch(`${api}?method=load&key=${key}`)
+    const text = await res.text()
+    const data = JSON.parse(text)
+    return typeof data === 'string' ? JSON.parse(data) : data
+  } catch (err) {
+    console.error("Load failed", err)
+    return []
   }
 }
-
-async function runApi() { // this is just a run function to test the api, not needed in the final version
-  await saveMenu();
-  await loadFromApi();
-}
-
-runApi();
-
-export { saveMenu, loadFromApi, runApi };
