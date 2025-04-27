@@ -1,8 +1,12 @@
+import AddPizzaForm from "./Addpizzaitem";
 import MenuForm from "./MenuForm";
 
 function TomSida() {
 	return (
-	  <MenuForm></MenuForm>
+	  <>
+		<AddPizzaForm></AddPizzaForm>
+		<MenuForm></MenuForm>
+	  </>
 	);
   }
   
