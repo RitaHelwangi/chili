@@ -8,8 +8,30 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="header-content">
-          <div className="logo-column">
+
+			
+          <NavLink to="/">
             <img className="logo" src={Logo} alt="Logo" />
+          </NavLink>
+
+
+          <div className="nav-texts">
+            <NavLink
+              to="/menu"
+              className={({ isActive }) =>
+                isActive ? "nav-item active" : "nav-item"
+              }>Menu</NavLink>
+            
+              
+            
+            <NavLink
+              to="/form"
+              className={({ isActive }) =>
+                isActive ? "nav-item active" : "nav-item"
+              } >Employees</NavLink>
+           
+            
+              
           </div>
         </div>
       </div>

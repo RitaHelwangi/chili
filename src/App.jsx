@@ -8,25 +8,11 @@ import Footer from "./components/Footer.jsx";
 import Order from './pages/Order';
 import Form from './components/Form'
 import TomSida from './components/TomSida';
+import MenuForm from "../src/components/MenuForm.jsx"
 
 
-// function AppWrapper() {
-// 	const location = useLocation();
-// 	const isFormPage = location.pathname === "/form";
-  
-// 	return (
-// 	  <>
-		
-// 		{!isFormPage && (
-// 		  <NavLink to="/form">Go to Form</NavLink>
-// 		)}
-		
-// 		<Routes>
-		  
-// 		</Routes>
-// 	  </>
-// 	);
-//   }
+
+
 
 function App() {
   return (
@@ -42,6 +28,7 @@ function App() {
 			<Route path="/" element={<Home></Home>}></Route>
 			<Route path="/order" element={<Order></Order>}></Route>
 			<Route path="/empty" element={<TomSida />} />
+			<Route path="/editMenu" element={<MenuForm />} />
 		</Routes>
 
 	<Footer />
