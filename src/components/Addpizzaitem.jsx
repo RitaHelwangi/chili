@@ -151,8 +151,8 @@ const AddPizzaForm = () => {
 
   return (
     <div className='add-food-div'>
+      <h2 className='h2-add-food'>Add new Food</h2>
       <section className='add-food-input'>
-        <h2 className='h2-add-food'>Add new Food</h2>
         
         {loading ? (
           <p>Loading menu data...</p>
@@ -216,12 +216,12 @@ const AddPizzaForm = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 onBlur={() => setTouched((prev) => ({ ...prev, description: true }))}
-              />
-              {touched.description && errors.description && (
-                <p className={`error-text ${touched.description && errors.description ? 'visible' : ''}`}>
-                  {errors.description}
-                </p>
-              )}
+                />
+                
+                  <p className={`error-text ${touched.description && errors.description ? 'visible' : ''}`}>
+                    {errors.description}
+                  </p>
+                
               
               <div className='button-container'>
                 <button
