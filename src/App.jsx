@@ -10,11 +10,8 @@ import Form from './components/Form'
 import TomSida from './components/TomSida';
 import MenuForm from "../src/components/MenuForm.jsx"
 
-
-
-
-
 function App() {
+     
   return (
     <>
 
