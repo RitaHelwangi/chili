@@ -53,6 +53,7 @@ function Menu() {
             ))
           : menuToShow.map((item) => (
               <MenuItemDrink
+			  				id={item.id}
                 key={item.id}
                 image={item.image}
                 name={item.name}
