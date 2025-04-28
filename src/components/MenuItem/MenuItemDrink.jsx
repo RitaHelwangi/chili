@@ -3,6 +3,7 @@ import "../../pages/Menu.css"
 import { useOrderStore } from "../../data/orderStore";
 
 function MenuItemDrink(props) {
+	console.log("MenuItemDrink props:", props);
 	const addToCart = useOrderStore((state) => state.addToCart);
 	
 		const handleAddToCart = () => {
