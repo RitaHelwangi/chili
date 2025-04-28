@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import Joi from 'joi'
 import { useMenuStore } from '../store/menuStore'
 import "../components/MenuForm.css"
+import HideButton from "./RemoveButton/HideButton";
 
 export default function MenuForm() {
   const { menus, addMenu, editMenu, removeMenu, fetchMenus, saveMenus } = useMenuStore();
@@ -106,7 +107,8 @@ export default function MenuForm() {
           >
             Edit
           </button>
-          <button className="menuform-button" onClick={() => removeMenu(menu.id)}>Remove</button>
+          {/* <button className="menuform-button" onClick={() => removeMenu(menu.id)}>Remove</button> */}
+		  <HideButton itemId={menu.id} />
         </div>
       ))}
 	  </div>

@@ -1,9 +1,14 @@
 import "../MenuItem/MenuItem.css";
 import "../../pages/Menu.css"
 import { useOrderStore } from "../../data/orderStore";
+import { useMenuStore } from "../RemoveButton/HideData"; 
 
 function MenuItemDrink(props) {
 	const addToCart = useOrderStore((state) => state.addToCart);
+	const hiddenItems = useMenuStore((state) => state.hiddenItems); 
+	const isHidden = hiddenItems.includes(props.id); 
+
+	if (isHidden) return null; 
 	
 		const handleAddToCart = () => {
 			const item = {
