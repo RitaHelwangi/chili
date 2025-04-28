@@ -80,11 +80,6 @@
 
 .order-summary {
   margin-top: 2rem;
-<<<<<<< HEAD
-  text-align: right;
-}
-
-=======
   text-align: center;
 color: black;
 }
@@ -106,7 +101,6 @@ color: black;
 }
 
 .clear-btn,
->>>>>>> menu
 .checkout-btn {
   background-color: #e63946;
   color: white;
