@@ -1,8 +1,10 @@
+
 // src\components\MenuForm.jsx 
 
 import React, { useState, useEffect } from 'react'
 import Joi from 'joi'
 import { useMenuStore } from '../store/menuStore'
+import "../components/MenuForm.css"
 
 export default function MenuForm() {
   const { menus, addMenu, editMenu, removeMenu, fetchMenus, saveMenus } = useMenuStore()
@@ -64,7 +66,7 @@ export default function MenuForm() {
   }
 
   return (
-    <div className="form-area">
+    <div className="edit-input">
       <h2>Edit Menu</h2>
 
       <input name="name" value={form.name} onChange={handleChange} placeholder="Name" autoComplete="name" />
@@ -84,9 +86,10 @@ export default function MenuForm() {
       {message && <div className="success-message">{message}</div>}
 
       <h3>Menu List</h3>
-      {menus.map(menu => (
-        <div key={menu.id} className="menu-item">
-          <strong>{menu.name}</strong> - {menu.description}<br />
+	  <div className='menu-list-edit'>
+		 {menus.map(menu => (
+        <div key={menu.id} className="edit-item">
+          <strong className='title-menu'>{menu.name}</strong> - {menu.description}<br />
           <em>{Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : menu.ingredients}</em><br />
           <span>{menu.price} kr</span><br />
           {menu.image && <img src={menu.image} alt={menu.name} width="100" />}<br />
@@ -107,6 +110,8 @@ export default function MenuForm() {
           <button className="menu-button" onClick={() => removeMenu(menu.id)}>Remove</button>
         </div>
       ))}
+	  </div>
+     
     </div>
   )
 }
