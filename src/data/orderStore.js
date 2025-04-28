@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import {food } from "../data/menuStore";
+import { food } from "../data/menuStore";
 
 export const useOrderStore = create((set) => ({
   cart: [],
