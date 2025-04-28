@@ -1,4 +1,5 @@
 // src/components/MenuForm.jsx
+// menu editor page
 
 import React, { useState, useEffect } from 'react';
 import Joi from 'joi';
