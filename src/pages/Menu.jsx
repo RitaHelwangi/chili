@@ -41,6 +41,7 @@ function Menu() {
         {selectedCategory === "food"
           ? menuToShow.map((item) => (
               <MenuItemFood
+			  id={item.id}
                 key={item.id}
                 image={item.image}
                 alt={item.alt}

@@ -1,11 +1,12 @@
 .add-food-div {
+	
   background-color: rgba(141, 162, 83, 0.5);
-  width: fit-content;
+  width: 100%;
   box-shadow: none;
   font-family: inherit;
-  margin: 20px auto;
   display: inline-block;
   text-align: center;
+  border-bottom: 2px solid rgb(18, 53, 18);
 }
 
 .add-food-input {
@@ -30,11 +31,11 @@ label {
   border-radius: 4px;
   border: none;
   background-color: white;
-  width: 180px;
+
   box-shadow: none;
   color: black;
   margin: 10px;
-  max-width: 90%;
+  
 }
 
 .button-container {
