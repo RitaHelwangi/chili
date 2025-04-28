@@ -81,11 +81,12 @@
 .order-summary {
   margin-top: 2rem;
   text-align: center;
+color: black;
 }
 
 .order-summary p {
   font-size: 1.2rem;
-  color: #fff;
+  color: black;
   margin-bottom: 1rem;
 }
 
