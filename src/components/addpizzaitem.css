@@ -90,16 +90,11 @@ label {
 
 
 @media screen and (max-width: 350px) {
-  .add-food-div {
-    width: 75%;
-  }
+  
   
   label {
     font-size: 0.9rem;
   }
   
-  .input-field-add {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
+ 
 }
