@@ -174,5 +174,6 @@ export const food = [
 	  }
   ];
   
+export default food;
   
  

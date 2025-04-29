@@ -8,7 +8,8 @@ function MenuItemFood(props){
 	const hiddenItems = useMenuStore((state) => state.hiddenItems); //jag Emma har lagt till, från HideData
 
 	const isHidden = hiddenItems.includes(props.id); //från HideData
-
+console.log("Hidden items:", hiddenItems);
+console.log("Is hidden:", isHidden, "for item:", props.id);
 	if (isHidden) return null; //tar bort renderingen om den är hidden
 
 	const handleAddToCart = () => {

@@ -1,73 +1,86 @@
-body {
-    background-color: #fef0c1;
-    color: black;
-    text-align: center;
+.edit-input{
+	display: flex;
+	flex-direction: column;
+}
+.edit-input h2{
+	padding: 15px;
+	
+}
+.edit-input input{
+	width: 50%;
+	padding: 10px;
+	margin: 15px;
+}
+.edit-input button{
+	width: 300px;
+	margin: 20px;
+}
+.edit-input h3{
+	margin-left: 15px;
+	font-size: 25px;
+}
+.menu-list-edit{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 750px;
+
+}
+.menu-list-edit button{
+	width: 50%;
+	height: 60px;
+	
+}
+.title-menu{
+	font-size: 20px;
+	margin: 10px;
 }
 
-.menuform-area {
-    display: inline-block;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px auto;
-  }
-  
-  .menuform-area input {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-    max-width: 90%;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .menuform-button {
-    background-color: #b83324;
-    color: white;
-    margin: 5px;
-    padding: 6px 12px; 
-    border: 2px solid #b83324;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    font-size: 14px; 
-    width: auto; 
-    display: inline-block; 
-  }
-  
-  
-  .menuform-button:hover {
-    background-color: transparent;
-    color: #b83324;
-  }
-  
-  .menuform-success-message {
-    color: green;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  .menuform-item {
-    background-color: rgba(141, 162, 83, 0.5);
-    padding: 12px;
-    border-radius: 6px;
-    margin: 10px;
-    display: inline-block;
-    width: 260px;
-    vertical-align: top;
-    text-align: center;
-  }
-  
-  .menuform-item img {
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
+.edit-item{
+	border: 2px solid rgb(62, 81, 9);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: rgb(162, 179, 113);
 
-  .menuform-area input {
-    background-color: white;
-    color: black;
-  }
+	margin: 20px;
+	padding: 10px;
+}
+.edit-item img{
+	width: 35%;
+	border-radius: 10px;
 
-  
+}
+@media screen and (max-width:600px) {
+	.edit-input input{
+		width: 70%;
+		
+	}
+	.menu-list-edit{
+		display: grid;
+		grid-template-columns: 1fr ;
+		grid-template-rows: 700px;
+		
+		}
+		.menu-list-edit button{
+			height: 50px;
+			
+		}
+		.edit-item img{
+			width: 30%;
+	
+		
+		}
+}
+@media screen and (max-width:400px) {
+	.menu-list-edit{
+		display: flex;
+		flex-direction: column;
+		width: 300px;
+		}
+		.edit-input button{
+			width: 200px;
+		
+		}
+
+}
