@@ -33,4 +33,4 @@ export async function loadFromApi() {
     console.error("Load failed", err);
     return [];
   }
-  
+}
