@@ -75,32 +75,12 @@ export const food = [
 
 export const useMenuStore = create((set, get) => ({
   menus: [],
-
-  // Fetch menus from the API and merge with fallback data
   fetchMenus: async () => {
     try {
       const data = await loadFromApi();
       console.log("Fetched API data:", data);
-
-      // Ensure `data` is an array
-      const apiData = Array.isArray(data) ? data : [data];
-
-      // Merge API data with fallback data
-      const mergedMenus = food.map((fallbackItem) => {
-        const apiItem = apiData.find((item) => item.name === fallbackItem.name);
-        return apiItem || fallbackItem; // Use API item if it exists, otherwise fallback
-      });
-
-      // Add any items from the API that are not in the fallback data
-      const additionalMenus = apiData.filter(
-        (apiItem) =>
-          !food.some((fallbackItem) => fallbackItem.name === apiItem.name)
-      );
-
-      const finalMenus = [...mergedMenus, ...additionalMenus];
-      console.log("Final merged menus:", finalMenus);
-
-      set({ menus: finalMenus }); // Update the state with the final merged menus
+      
+      set({ menus: data }); // Directly set the API data as menus without any fallback logic
     } catch (err) {
       console.error("Error fetching menus:", err);
     }
@@ -115,9 +95,7 @@ export const useMenuStore = create((set, get) => ({
   // Edit an existing menu item
   editMenu: (menu) =>
     set((state) => ({
-      menus: state.menus.map(
-        (m) => (m.id === menu.id ? { ...m, ...menu } : m) // Merge the updated fields with the existing item
-      ),
+      menus: state.menus.map((m) => (m.id === menu.id ? menu : m)),
     })),
 
   // Remove a menu item by ID
