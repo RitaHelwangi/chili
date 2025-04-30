@@ -38,36 +38,24 @@ export default function MenuForm() {
     setForm(prev => ({ ...prev, [name]: value }));
   };
   // 'handleSubmit' when clicking Save or Update (validates the form data, edit & save all data to API)
-  const handleSubmit = async () => {
-    const { id, name, description, ingredients, price, image } = form;
-    const formattedIngredients = ingredients.split(',').map(i => i.trim());
-    const menuData = { id, name, description, ingredients: formattedIngredients, price, image };
+ const handleSubmit = async () => {
+  const { id, name, description, ingredients, price, image } = form;
+  const formattedIngredients = ingredients.split(',').map((i) => i.trim());
+  const menuData = { id, name, description, ingredients: formattedIngredients, price, image };
 
-    const { error } = schema.validate({ id, name, description, ingredients, price, image });
-    if (error) {
-      setValidationError(error.details[0].message);
-      return;
-    }
-    setValidationError('');
+  if (editingId) {
+    editMenu(menuData); // Ensure this passes all required fields
+    setMessage('Menu updated!');
+  } else {
+    const newId = crypto.randomUUID();
+    addMenu({ ...menuData, id: newId });
+    setMessage('Menu added!');
+  }
 
-    if (editingId) {
-      console.log("Updating menu:", menuData);  // Check if menu updated.
-      editMenu(menuData);
-      setMessage('Menu updated!');
-    } else {
-      const newId = crypto.randomUUID();
-      const newMenu = { ...menuData, id: newId };
-      console.log("Adding new menu:", newMenu);  // Check if menu added.
-      addMenu({ ...menuData, id: newId });
-      setMessage('Menu added!');
-    }
-
-    await saveMenus();
-    console.log("Current menus after save:", menus); // Check if menu saved.
-    setTimeout(() => setMessage(''), 3000);
-    setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '' });
-    setEditingId(null);
-  };
+  await saveMenus();
+  setForm({ id: '', name: '', description: '', ingredients: '', price: '', image: '' });
+  setEditingId(null);
+};
 
   // Create 'handleRemove' for deleting the menu from the store & updating data to the API.
   // Create 'message & validationError' to display "success" or "error" notifications on the webpage.
@@ -105,37 +93,34 @@ export default function MenuForm() {
       {message && <div className="menuform-success-message">{message}</div>}
 
       <h3>Menu List</h3>
-	  <div className='menu-list-edit'>
-		 {menus.map(menu => (
-        <div key={menu.id} className="edit-item">
-          <strong className='title-menu'>{menu.name}</strong> - {menu.description}<br />
-          <em>{Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : menu.ingredients}</em><br />
-          <span>{menu.price} kr</span><br />
-          {menu.image && <img src={menu.image} alt={menu.name} width="100" />}<br />
-          <button
-            className="menuform-button"
-            onClick={() => {
-              console.log("Editing menu:", menu); // << Check if "Edit" button is working
-              // When loading menu data into the form, make sure that if a value is missing, set it to '' (an empty string).
-              setForm({
-                id: menu.id || '',
-                name: menu.name || '',
-                description: menu.description || '', 
-                ingredients: Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : (menu.ingredients || ''),
-                price: menu.price || '',
-                image: menu.image || ''
-              });
-              setEditingId(menu.id);
-            }}
-          >
-            Edit
-          </button>
-          <button className="menuform-button" onClick={() => handleRemove(menu.id)}>Remove</button>
-        </div>
-      ))}
-	  </div>
+	  <div className="menu-list-edit">
+  {menus.map((menu) => (
+    <div key={menu.id} className="edit-item">
+      <strong className="title-menu">{menu.name}</strong> - {menu.description}<br />
+      <em>{Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : menu.ingredients}</em><br />
+      <span>{menu.price} kr</span><br />
+      {menu.image && <img src={menu.image} alt={menu.name} width="100" />}<br />
+      <button
+        className="menuform-button"
+        onClick={() => {
+          setForm({
+            id: menu.id,
+            name: menu.name,
+            description: menu.description,
+            ingredients: Array.isArray(menu.ingredients) ? menu.ingredients.join(', ') : menu.ingredients,
+            price: menu.price,
+            image: menu.image,
+          });
+          setEditingId(menu.id);
+        }}
+      >
+        Edit
+      </button>
+      <button className="menuform-button" onClick={() => handleRemove(menu.id)}>Remove</button>
+    </div>
+  ))}
+</div>
      
     </div>
   )
 }
-
