@@ -256,29 +256,15 @@ export const food = [
   },
 ];
 
+
 export const useMenuStore = create((set, get) => ({
   menus: [],
   fetchMenus: async () => {
     try {
       const data = await loadFromApi();
       console.log("Fetched API data:", data);
-
-      // Merge API data with fallback data
-      const mergedMenus = food.map((fallbackItem) => {
-        const apiItem = data.find((item) => item.name === fallbackItem.name);
-        return apiItem || fallbackItem; // Use API item if it exists, otherwise fallback
-      });
-
-      // Add any items from the API that are not in the fallback data
-      const additionalMenus = data.filter(
-        (apiItem) =>
-          !food.some((fallbackItem) => fallbackItem.name === apiItem.name)
-      );
-
-      const finalMenus = [...mergedMenus, ...additionalMenus];
-      console.log("Final merged menus:", finalMenus);
-
-      set({ menus: finalMenus }); // Update the state with the final merged menus
+      
+      set({ menus: data }); // Directly set the API data as menus without any fallback logic
     } catch (err) {
       console.error("Error fetching menus:", err);
     }
