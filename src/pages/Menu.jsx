@@ -1,10 +1,10 @@
 import "../pages/Menu.css";
-import food from "../data/menu";
+import food from "../data/menu"; // fallback-data
 import { useEffect, useState } from "react";
 import MenuItemFood from "../components/MenuItem/MenuItem";
 import MenuItemDrink from "../components/MenuItem/MenuItemDrink";
 import { NavLink } from "react-router-dom";
-import "../components/Header.css"
+import "../components/Header.css";
 import { useOrderStore } from "../data/orderStore";
 import { loadFromApi } from "../data/api";
 function Menu() {
