@@ -1,3 +1,5 @@
+// src/store/menuStore.js
+
 import { create } from "zustand";
 import { loadFromApi, saveMenu } from "../data/api";
 
@@ -77,7 +79,8 @@ export const useMenuStore = create((set, get) => ({
   // Fetch menus from the API and merge with fallback data
   fetchMenus: async () => {
     try {
-      const apiData = await loadFromApi();
+      const data = await loadFromApi();
+      console.log("Fetched API data:", data);
 
       // Ensure `data` is an array
       const apiData = Array.isArray(data) ? data : [data];
@@ -100,15 +103,16 @@ export const useMenuStore = create((set, get) => ({
       set({ menus: finalMenus }); // Update the state with the final merged menus
     } catch (err) {
       console.error("Error fetching menus:", err);
-      set({ menus: food }); // fallback om API misslyckas
     }
   },
 
+  // Add a new menu item
   addMenu: (menu) =>
     set((state) => ({
       menus: [...state.menus, menu],
     })),
 
+  // Edit an existing menu item
   editMenu: (menu) =>
     set((state) => ({
       menus: state.menus.map(
@@ -116,11 +120,13 @@ export const useMenuStore = create((set, get) => ({
       ),
     })),
 
+  // Remove a menu item by ID
   removeMenu: (id) =>
     set((state) => ({
       menus: state.menus.filter((m) => m.id !== id),
     })),
 
+  // Save the current menus to the API
   saveMenus: async () => {
     try {
       const menus = get().menus;
