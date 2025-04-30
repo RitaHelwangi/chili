@@ -7,35 +7,50 @@ import { NavLink } from "react-router-dom";
 import "../components/Header.css";
 import { useOrderStore } from "../data/orderStore";
 import { loadFromApi } from "../data/api";
-
 function Menu() {
   const cart = useOrderStore((state) => state.cart);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  const [menuData, setMenuData] = useState([]);
+  
+  // Separate state for food and drink items
+  const [foodItems, setFoodItems] = useState([]);
+  const [drinkItems, setDrinkItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("food");
-
+  
   useEffect(() => {
     loadFromApi()
-      .then((apiData) => {
-        console.log("Fetched menu data from API:", apiData);
-
-        // Mergar fallback med API-data
+      .then((data) => {
+        console.log("Fetched menu data:", data);
+        
+        // Merge API data with fallback data
         const mergedData = food.map((fallbackItem) => {
-          const apiItem = apiData.find((item) => item.name === fallbackItem.name);
-          return apiItem || fallbackItem;
+          const apiItem = data.find((item) => item.name === fallbackItem.name);
+          return apiItem || fallbackItem; // Use API item if it exists, otherwise fallback
         });
-
-        setMenuData(mergedData);
+        
+        console.log("Merged menu data:", mergedData);
+        
+        // Separate the data by category immediately
+        const foodData = mergedData.filter(item => item.category === "food");
+        const drinkData = mergedData.filter(item => item.category === "drink");
+        
+        setFoodItems(foodData);
+        setDrinkItems(drinkData);
       })
       .catch((err) => {
         console.error("Error loading menu:", err);
-        setMenuData(food); // Använd fallback-data om API-laddning misslyckas
+        
+        // Fallback to local data if API fails
+        const foodData = food.filter(item => item.category === "food");
+        const drinkData = food.filter(item => item.category === "drink");
+        
+        setFoodItems(foodData);
+        setDrinkItems(drinkData);
       });
   }, []);
 
-  const menuToShow = menuData.filter((item) => item.category === selectedCategory);
-
+  // Determine which category items to show based on selection
+  const itemsToRender = selectedCategory === "food" ? foodItems : drinkItems;
+  
   return (
     <div className="menu-div">
       <div className="button-menu">
@@ -43,39 +58,37 @@ function Menu() {
           <button onClick={() => setSelectedCategory("food")}>Food</button>
           <button onClick={() => setSelectedCategory("drink")}>Drink</button>
         </div>
-
-        <div className="icon-shop">
+        <div className="icon-shop">  
           <NavLink to="/order">
             <i className="fas fa-shopping-cart">
-              {cart.length > 0 && <span className="basket">{totalItems}</span>}
+              {cart.length > 0 && (<span className="basket"> {totalItems}</span>)}
             </i>
           </NavLink>
         </div>
       </div>
-
       <div className="menu-item-div">
-        {menuToShow.map((item) =>
-          selectedCategory === "food" ? (
-            <MenuItemFood
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              alt={item.alt}
-              name={item.name}
-              price={item.price}
-              description={item.description}
-              ingredients={Array.isArray(item.ingredients) ? item.ingredients.join(", ") : ""}
-            />
-          ) : (
-            <MenuItemDrink
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
-            />
-          )
-        )}
+        {selectedCategory === "food"
+          ? itemsToRender.map((item) => (
+              <MenuItemFood
+                id={item.id}
+                key={item.id}
+                image={item.image}
+                alt={item.alt}
+                name={item.name}
+                price={item.price}
+                description={item.description}
+                ingredients={item.ingredients.join(", ")}
+              />
+            ))
+          : itemsToRender.map((item) => (
+              <MenuItemDrink
+                id={item.id}
+                key={item.id}
+                image={item.image}
+                name={item.name}
+                price={item.price}
+              />
+            ))}
       </div>
     </div>
   );
