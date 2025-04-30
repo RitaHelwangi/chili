@@ -22,15 +22,28 @@ export async function saveMenu(menuObject) {
 }
 
 export async function loadFromApi() {
-  try {
-    const res = await fetch(`${api}?method=load&key=${key}`);
-    const text = await res.text();
-    console.log("Raw API response:", text);
-    const data = JSON.parse(text);
-    console.log("Parsed API data:", data);
-    return typeof data === "string" ? JSON.parse(data) : data;
-  } catch (err) {
-    console.error("Load failed", err);
-    return [];
+	try {
+	  const res = await fetch(`${api}?method=load&key=${key}`);
+	  const text = await res.text();
+	  console.log("Raw API response:", text);
+	  const parsed = JSON.parse(text);
+  
+	  if (Array.isArray(parsed)) {
+		// Om vi får en array av objekt, plocka ut och parsa varje value
+		const menuItems = parsed.map(item => JSON.parse(item.value));
+		console.log("Parsed menu items from array:", menuItems);
+		return menuItems;
+	  } else if (parsed.value) {
+		// Om vi får ett enstaka objekt
+		const singleItem = JSON.parse(parsed.value);
+		console.log("Parsed single item:", singleItem);
+		return Array.isArray(singleItem) ? singleItem : [singleItem];
+	  } else {
+		return [];
+	  }
+	} catch (err) {
+	  console.error("Load failed", err);
+	  return [];
+	}
   }
-}
+  
