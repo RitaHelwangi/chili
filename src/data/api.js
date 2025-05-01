@@ -25,9 +25,9 @@ export async function loadFromApi() {
   try {
     const res = await fetch(`${api}?method=load&key=${key}`);
     const text = await res.text();
-    console.log("Raw API response:", text);
+    // console.log("Raw API response:", text);
     const data = JSON.parse(text);
-    console.log("Parsed API data:", data);
+    // console.log("Parsed API data:", data);
     return typeof data === "string" ? JSON.parse(data) : data;
   } catch (err) {
     console.error("Load failed", err);

@@ -19,30 +19,37 @@ function Menu() {
 			setMenuData(data); 
 		 
       // Merge API data with fallback data
-      const mergedData = food.map((fallbackItem) => {
-        const apiItem = data.find((item) => item.name === fallbackItem.name);
-        return apiItem || fallbackItem; // Use API item if it exists, otherwise fallback
-      });
+      // const mergedData = food.map((fallbackItem) => {
+      //   const apiItem = data.find((item) => item.name === fallbackItem.name);
+      //   return apiItem || fallbackItem; // Use API item if it exists, otherwise fallback
+      // });
 
-      console.log("Merged menu data:", mergedData);
-      setMenuData(mergedData);
+      // console.log("Merged menu data:", mergedData);
+      // setMenuData(mergedData);
+
+      // commented  out the merging of API DATA fall back adde
     })
     .catch((err) => {
       console.error("Error loading menu:", err);
     });
 }, []);
 	
-  const [selectedCategory, setSelectedCategory] = useState("food");
+  // const [selectedCategory, setSelectedCategory] = useState("food");
 
-  const menuToShow = menuData.filter((item) => item.category === selectedCategory);
-console.log("Filtered menu data:", menuToShow);
+  // const menuToShow = menuData.filter((item) => item.category === selectedCategory);
+// console.log("Filtered menu data:", menuToShow);
+
+// commented out the filtering of menu data to show from API adde
+
+const menuToShow = menuData
 
   return (
     <div className="menu-div">
 		<div className="button-menu">
       <div className="menu-nav">
-        <button onClick={() => setSelectedCategory("food")}>Food</button>
-        <button onClick={() => setSelectedCategory("drink")}>Drink</button>
+        {/* <button onClick={() => setSelectedCategory("food")}>Food</button> */}
+        {/* <button onClick={() => setSelectedCategory("drink")}>Drink</button> */}
+        {/* commented out the buttons for filtering food and drink */}
       </div>
 
       <div className="icon-shop">  
@@ -51,6 +58,34 @@ console.log("Filtered menu data:", menuToShow);
       </div></div>
 
       <div className="menu-item-div">
+        {menuToShow.map((item) => (
+          item.category === "food" ? (
+            <MenuItemFood
+              id={item.id}
+              key={item.id}
+              image={item.image}
+              alt={item.alt}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+              ingredients={item.ingredients?.join(", ") || ""}
+            />
+          ) : (
+            <MenuItemDrink
+              id={item.id}
+              key={item.id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+            />
+          )
+        ))}
+      </div>
+
+
+
+        {/* commtedted the old render with the filter adde */}
+      {/* <div className="menu-item-div">
         {selectedCategory === "food"
           ? menuToShow.map((item) => (
               <MenuItemFood
@@ -64,7 +99,9 @@ console.log("Filtered menu data:", menuToShow);
                 ingredients={item.ingredients.join(", ")}
               />
             ))
-          : menuToShow.map((item) => (
+          : 
+          menuToShow.map((item) => 
+            (
               <MenuItemDrink
 			  				id={item.id}
                 key={item.id}
@@ -73,7 +110,7 @@ console.log("Filtered menu data:", menuToShow);
                 price={item.price}
               />
             ))}
-      </div>
+      </div> */}
     </div>
   );
 }
