@@ -28,7 +28,9 @@ function MenuItemFood(props){
 		
 		<div className="menu-item">
 		<div className="image-menu">
-		<img src={props.image} alt={props.alt} />
+		{props.image ? (
+  <img src={props.image} alt={props.alt || props.name} />
+) : null}
 		</div>
 		<div>
 		<div className="name-price">
