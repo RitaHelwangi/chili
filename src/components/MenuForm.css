@@ -1,0 +1,86 @@
+.edit-input{
+	display: flex;
+	flex-direction: column;
+}
+.edit-input h2{
+	padding: 15px;
+	
+}
+.edit-input input{
+	width: 50%;
+	padding: 10px;
+	margin: 15px;
+}
+.edit-input button{
+	width: 300px;
+	margin: 20px;
+}
+.edit-input h3{
+	margin-left: 15px;
+	font-size: 25px;
+}
+.menu-list-edit{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 750px;
+
+}
+.menu-list-edit button{
+	width: 50%;
+	height: 60px;
+	
+}
+.title-menu{
+	font-size: 20px;
+	margin: 10px;
+}
+
+.edit-item{
+	border: 2px solid rgb(62, 81, 9);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: rgb(162, 179, 113);
+
+	margin: 20px;
+	padding: 10px;
+}
+.edit-item img{
+	width: 35%;
+	border-radius: 10px;
+
+}
+@media screen and (max-width:600px) {
+	.edit-input input{
+		width: 70%;
+		
+	}
+	.menu-list-edit{
+		display: grid;
+		grid-template-columns: 1fr ;
+		grid-template-rows: 700px;
+		
+		}
+		.menu-list-edit button{
+			height: 50px;
+			
+		}
+		.edit-item img{
+			width: 30%;
+	
+		
+		}
+}
+@media screen and (max-width:400px) {
+	.menu-list-edit{
+		display: flex;
+		flex-direction: column;
+		width: 300px;
+		}
+		.edit-input button{
+			width: 200px;
+		
+		}
+
+}
