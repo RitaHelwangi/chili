@@ -32,6 +32,7 @@
 	display: flex;
 }
 .icon-shop{
+	margin-top: 10px;
 	background-color: antiquewhite;
 	border-radius: 100%;
 	font-size: 25px;
